@@ -65,8 +65,8 @@ int main(int argc, char *argv[]) {
     int rowLength = matrixDimension[1];
     int columnLength = matrixDimension[0];
 
-    double ** matrix = (double **) malloc(rowLength * sizeof(double));///Double Array
-    double ** outputMatrix = (double **) malloc(rowLength * sizeof(double));
+    double ** matrix = (double **) malloc(rowLength * sizeof(double*));///Double Array
+    double ** outputMatrix = (double **) malloc(rowLength * sizeof(double*));
     int i;
     for(i = 0; i < rowLength; i++){
         matrix[i] = (double *) malloc(columnLength * sizeof(double));
@@ -86,6 +86,8 @@ int main(int argc, char *argv[]) {
     assert(outputFile != NULL);
     int outputMatrixDimension = {rowLength, rowLength};
     outputMatrixToFile(outputMatrix, outputMatrixDimension, outputFile);
+
+    fclose(outputFile);
 
 
     free(matrix);
