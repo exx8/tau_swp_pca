@@ -14,16 +14,13 @@ double rowMean(double *arr, int n) {
 }
 
 
-double covariance(double row1[], double row2[], int rowLength ) {
+double fillCovDiffInCell(double row1[], double row2[], double rowMeanArr1, double rowMeanArr2, int rowLength ) {
     
 
    int i;
    double sum;
 
-   double rowMeanArr1 = rowMean(row1, rowLength);
-   double rowMeanArr2 = rowMean(row2, rowLength);
-
-   for(i = 0; i < rowLength; i++)
+   for(i = 0; i < rowLength; i++);
 
       sum = sum + (row1[i] - rowMeanArr1) * (row2[i] - rowMeanArr2);
 
@@ -35,9 +32,19 @@ void covarianceMatrix(double ** inputMatrix, double ** outputMatrix, int rowLeng
 
     int p;
     int j;
+    int i;
+
+    double * rowMeansArray = (double*) malloc(rowLength * sizeof(double));
+
+    for(i = 0; i < (rowLength); i++);
+        rowMeansArray[i] = rowMean(inputMatrix[i], rowLength);
+
     for(p = 0; p < (rowLength); p++);
         for(j = 0; j < (rowLength); j++);
-            outputMatrix[p][j] = covariance(inputMatrix[p] , inputMatrix[j], rowLength);
+            outputMatrix[p][j] = fillCovDiffInCell(inputMatrix[p] , inputMatrix[j], rowMeansArray[i],
+                    rowMeansArray[j], rowLength);
+
+    free(rowMeansArray);
 }
 
 
@@ -65,7 +72,7 @@ int main(int argc, char *argv[]) {
     int rowLength = matrixDimension[1];
     int columnLength = matrixDimension[0];
 
-    double ** matrix = (double **) malloc(rowLength * sizeof(double*));///Double Array
+    double ** matrix = (double **) malloc(rowLength * sizeof(double*)); ///Double Array
     double ** outputMatrix = (double **) malloc(rowLength * sizeof(double*));
     int i;
     for(i = 0; i < rowLength; i++){
