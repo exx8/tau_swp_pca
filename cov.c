@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-
+#include "time.h"
 
 double rowMean(const double *arr, int n) {
 
@@ -17,12 +17,13 @@ double rowMean(const double *arr, int n) {
 double fillCovDiffInCell(const double row1[], double row2[], double rowMeanArr1, double rowMeanArr2, int rowLength) {
 
 
-    int i;
     double sum = 0;
+    double const* row1Cell=row1;
+    double * row2Cell=row2;
+    double const* rowEnd=row1+rowLength;
+    for (; row1Cell!=rowEnd; row1Cell++,row2Cell++) {
 
-    for (i = 0; i < rowLength; i++) {
-
-        sum = sum + (row1[i] - rowMeanArr1) * (row2[i] - rowMeanArr2);
+        sum = sum + (*row1Cell - rowMeanArr1) * (*row2Cell - rowMeanArr2);
     }
     return sum;
 
@@ -49,7 +50,7 @@ void covarianceMatrix(double **inputMatrix, double **outputMatrix, int rowLength
 }
 
 
-void outputMatrixToFile(double **outputMatrix, int *outputMatrixDimension, FILE *outputFile) {
+void outputMatrixToFile(double **outputMatrix, int outputMatrixDimension[], FILE *outputFile) {
     int l;
     int toFileByRow = 0;
     int rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
@@ -73,8 +74,11 @@ int main(int argc, char *argv[]) {
     int matrixRow;
     FILE *outputFile;
     int outputMatrixDimension[2] = {0, 0};
+    clock_t start,end;
+    FILE *file;
 
-    FILE *file = fopen(argv[1], "r");
+    start=clock();
+    file = fopen(argv[1], "r");
     assert(file != NULL);
 
     numberOfParameters = fread(matrixDimension, sizeof(int), 2, file);
@@ -112,5 +116,7 @@ int main(int argc, char *argv[]) {
     free(outputMatrix);
 
     (void) argc;/*we don't want any warnings*/
+    end=clock();
+    printf("%f",((double)(end-start) / CLOCKS_PER_SEC));
     return 0;
 }
