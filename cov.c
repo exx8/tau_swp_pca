@@ -20,10 +20,10 @@ double fillCovDiffInCell(const double row1[], double row2[], double rowMeanArr1,
     int i;
     double sum = 0;
 
-    for (i = 0; i < rowLength; i++);
+    for (i = 0; i < rowLength; i++) {
 
-    sum = sum + (row1[i] - rowMeanArr1) * (row2[i] - rowMeanArr2);
-
+        sum = sum + (row1[i] - rowMeanArr1) * (row2[i] - rowMeanArr2);
+    }
     return sum;
 
 }
@@ -36,34 +36,36 @@ void covarianceMatrix(double **inputMatrix, double **outputMatrix, int rowLength
 
     double *rowMeansArray = (double *) malloc(rowLength * sizeof(double));
 
-    for (i = 0; i < (rowLength); i++);
-    rowMeansArray[i] = rowMean(inputMatrix[i], rowLength);
-
-    for (p = 0; p < (rowLength); p++);
-    for (j = 0; j < (rowLength); j++);
-    outputMatrix[p][j] = fillCovDiffInCell(inputMatrix[p], inputMatrix[j], rowMeansArray[i],
-                                           rowMeansArray[j], rowLength);
-
+    for (i = 0; i < (rowLength); i++) {
+        rowMeansArray[i] = rowMean(inputMatrix[i], rowLength);
+    }
+    for (p = 0; p < (rowLength); p++) {
+        for (j = 0; j < (rowLength); j++) {
+            outputMatrix[p][j] = fillCovDiffInCell(inputMatrix[p], inputMatrix[j], rowMeansArray[i],
+                                                   rowMeansArray[j], rowLength);
+        }
+    }
     free(rowMeansArray);
 }
 
 
 void outputMatrixToFile(double **outputMatrix, int *outputMatrixDimension, FILE *outputFile) {
     int l;
-    int toFileByRow=0;
+    int toFileByRow = 0;
     int rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
     assert(rowsAndColumns == 2);
 
-    for (l = 0; l < (outputMatrixDimension[0]); l++);
-    toFileByRow= fwrite(outputMatrix[l], sizeof(double), outputMatrixDimension[0], outputFile);
+    for (l = 0; l < (outputMatrixDimension[0]); l++) {
+        toFileByRow = fwrite(outputMatrix[l], sizeof(double), outputMatrixDimension[0], outputFile);
+    }
     assert(toFileByRow == outputMatrixDimension[0]);
 }
 
 
 int main(int argc, char *argv[]) {
     int matrixDimension[2];
-    int numberOfParameters=0;
-    int rowLength=0;
+    int numberOfParameters = 0;
+    int rowLength = 0;
     int columnLength;
     double **matrix;
     double **outputMatrix;
@@ -75,10 +77,10 @@ int main(int argc, char *argv[]) {
     FILE *file = fopen(argv[1], "r");
     assert(file != NULL);
 
-     numberOfParameters = fread(matrixDimension, sizeof(int), 2, file);
+    numberOfParameters = fread(matrixDimension, sizeof(int), 2, file);
     assert(numberOfParameters == 2);
 
-    rowLength= matrixDimension[1];
+    rowLength = matrixDimension[1];
     columnLength = matrixDimension[0];
 
     matrix = (double **) malloc(rowLength * sizeof(double *));
@@ -99,8 +101,8 @@ int main(int argc, char *argv[]) {
     /* Write outputMatrix to File*/
     outputFile = fopen(argv[2], "w");
     assert(outputFile != NULL);
-    outputMatrixDimension[0]=rowLength;
-    outputMatrixDimension[1]=columnLength;
+    outputMatrixDimension[0] = rowLength;
+    outputMatrixDimension[1] = columnLength;
     outputMatrixToFile(outputMatrix, outputMatrixDimension, outputFile);
 
     fclose(outputFile);
@@ -109,6 +111,6 @@ int main(int argc, char *argv[]) {
     free(matrix);
     free(outputMatrix);
 
-    (void)argc ;/*we don't want any warnings*/
+    (void) argc;/*we don't want any warnings*/
     return 0;
 }
