@@ -51,13 +51,15 @@ void covarianceMatrix(double **inputMatrix, double **outputMatrix, int rowLength
 
 
 void outputMatrixToFile(double **outputMatrix, int outputMatrixDimension[], FILE *outputFile) {
-    int l;
+    double* outputMatrixCell=outputMatrix[0];
+    double* outputMatrixEnd=outputMatrix[0]+(outputMatrixDimension[0]);
     int toFileByRow = 0;
     int rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
     assert(rowsAndColumns == 2);
 
-    for (l = 0; l < (outputMatrixDimension[0]); l++) {
-        toFileByRow = fwrite(outputMatrix[l], sizeof(double), outputMatrixDimension[0], outputFile);
+
+    for (; outputMatrixCell!=outputMatrixEnd; outputMatrixCell++) {
+        toFileByRow = fwrite(outputMatrixCell, sizeof(double), outputMatrixDimension[0], outputFile);
     }
     assert(toFileByRow == outputMatrixDimension[0]);
 }
