@@ -6,9 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/Users/nazaraburas/CLionProjects/SoftwareProject1/main.c
+/home/eran/CLionProjects/tau_swp_pca/cov.c
 stdio.h
 -
 stdlib.h
 -
+assert.h
+-
+time.h
+/home/eran/CLionProjects/tau_swp_pca/time.h
 
