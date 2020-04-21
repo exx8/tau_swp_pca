@@ -25,14 +25,7 @@ double *getVector(int size) {
     return vector;
 }
 
-double diff(double *oldVector, double *newVector, int vectorSize) {
-    double maxDiff = 0;
-    double *oldVectorPointer = oldVector;
-    double *newVectorPointer = newVector;
-    double *oldVectorEnd = oldVector + vectorSize;
-    //@todo finishs or incoporate to main loop
 
-}
 
 void readline(FILE *input, double *currentRow, int size) {
     int n = fread(currentRow, sizeof(double), size, input);
@@ -54,7 +47,25 @@ double max(double a, double b) {
 
 }
 
-void iterateVector(FILE *input, double epsilon, double *vector, int vectorSize) {
+double scanColumn(const FILE *input, const double *vector, int vectorSize, const double *currentRow,
+                  const double *oldVectorEnd, double *oldVectorPointer) {
+   double largestDiff = 0;
+    for (; oldVectorPointer != oldVectorEnd; oldVectorPointer++) {
+        double cellNewValue;
+        readline(input, currentRow, vectorSize);
+        cellNewValue = calculate(currentRow, vector);
+        largestDiff = max(fabs(cellNewValue - *oldVectorPointer), largestDiff);
+        *oldVectorPointer = cellNewValue;
+
+    }
+    return largestDiff;
+}
+
+double calculate(double* currentRow, double* vector)
+{
+    /* @todo implement it*/
+}
+double * iterateVector(FILE *input, double epsilon, double *vector, int vectorSize) {
     double *newVector = (double *) calloc(vectorSize, sizeof(double));
     double *currentRow = calloc(vectorSize, sizeof(double));
     double *newVectorPointer = newVector;
@@ -63,20 +74,14 @@ void iterateVector(FILE *input, double epsilon, double *vector, int vectorSize) 
     double largestDiff = 0;
 
     do {
-        largestDiff = 0;
-        readline(input, currentRow, vectorSize);
-        for (; oldVectorPointer != oldVectorEnd; oldVectorPointer++) {
-
-            double cellNewValue = calculate(currentRow, vector);
-            largestDiff = max(fabs(cellNewValue - *oldVectorPointer), largestDiff);
-            *oldVectorPointer = cellNewValue;
-
-        }
+        largestDiff = scanColumn(input, vector, vectorSize, currentRow, oldVectorEnd, oldVectorPointer);
         swap(&newVector, &vector);
+        rewind(input);
     } while (largestDiff > epsilon);
     swap(&newVector, &vector);
     free(newVector);
     free(currentRow);
+    return newVector;
 }
 
 int main(int argc, char *argv[]) {
@@ -93,6 +98,7 @@ int main(int argc, char *argv[]) {
     getDimension(input, dimension);
     bk = getVector(dimension[0]);
 
+    /* @todo write the output file*/
     free(bk);
     fclose(input);
 }
