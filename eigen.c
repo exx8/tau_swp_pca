@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 FILE *openInputFile(char *const *argv) {
     FILE *input = fopen(argv[1], "r");
@@ -24,32 +25,65 @@ double *getVector(int size) {
     return vector;
 }
 
-double diff(double *oldVector, double *newVector,int vectorSize) {
-    double maxDiff=0;
-    double* oldVectorPointer=oldVector;
-    double* newVectorPointer=newVector;
-    double* oldVectorEnd=oldVector+vectorSize;
+double diff(double *oldVector, double *newVector, int vectorSize) {
+    double maxDiff = 0;
+    double *oldVectorPointer = oldVector;
+    double *newVectorPointer = newVector;
+    double *oldVectorEnd = oldVector + vectorSize;
     //@todo finishs or incoporate to main loop
 
 }
 
-void iterateVector(FILE *input, double epsilon, double **vector, int vectorSize) {
+void readline(FILE *input, double *currentRow, int size) {
+    int n = fread(currentRow, sizeof(double), size, input);
+    assert(n != size);
+
+}
+
+void swap(double **a, double **b) {
+    double **c = NULL;
+    *c = *a;
+    *a = *b;
+    *b = *c;
+}
+
+double max(double a, double b) {
+    if (a > b)
+        return a;
+    return b;
+
+}
+
+void iterateVector(FILE *input, double epsilon, double *vector, int vectorSize) {
     double *newVector = (double *) calloc(vectorSize, sizeof(double));
+    double *currentRow = calloc(vectorSize, sizeof(double));
+    double *newVectorPointer = newVector;
+    double *oldVectorEnd = vector + vectorSize;
+    double *oldVectorPointer = vector;
+    double largestDiff = 0;
 
     do {
+        largestDiff = 0;
+        readline(input, currentRow, vectorSize);
+        for (; oldVectorPointer != oldVectorEnd; oldVectorPointer++) {
 
+            double cellNewValue = calculate(currentRow, vector);
+            largestDiff = max(fabs(cellNewValue - *oldVectorPointer), largestDiff);
+            *oldVectorPointer = cellNewValue;
 
-    } while (diff(vector, newVector,vectorSize) > epsilon);
-
-
+        }
+        swap(&newVector, &vector);
+    } while (largestDiff > epsilon);
+    swap(&newVector, &vector);
+    free(newVector);
+    free(currentRow);
 }
 
 int main(int argc, char *argv[]) {
     FILE *input;
     int dimension[2] = {0, 0};
     int readStatus = 0;
-    double *b0;/*first vector*/
-    double **bk = &b0; /* iteration vector*/
+    double *bk;/* iteration vector*/
 
     assert(argc == 2);
     srand(time(NULL));
@@ -57,9 +91,9 @@ int main(int argc, char *argv[]) {
 
     input = openInputFile(argv);
     getDimension(input, dimension);
-    b0 = getVector(dimension[0]);
+    bk = getVector(dimension[0]);
 
-    free(*bk);
+    free(bk);
     fclose(input);
 }
 
