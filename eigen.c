@@ -46,30 +46,65 @@ double max(double a, double b) {
 
 }
 
-double calculate(const double *currentRow, const double *vector) {
-    /* @todo implement it*/
+double calculateNotNormalizedVectorCellValue(double *currentRow, double *vector, int size) {
+    double *currentCellInVector = vector;
+    double *currentRowCell = currentRow;
+    double *currentRowEnd = currentRow + size;
+    int sum = 0;
+    for (; currentRow != currentRowEnd; currentRow++, currentCellInVector++) {
+        sum += *currentRow * (*currentCellInVector);
+    }
+    return sum;
 }
 
-double scanColumnAndWriteToNewVector(FILE *input, double *vector, double* newVectorPointer, int vectorSize, double *currentRow) {
+double calcVectorDivisor(double* vector,int size)
+{
+    double * vectorEnd = vector + size;
+    double sum=0;
+    for(;vector!=vectorEnd;vector++)
+        sum+=*vector;
+
+    return sqrt(sum);
+}
+double normalizeVector(double *newVectorPointer, int vectorSize, const double *oldVectorPointer) {
+    double largestDiff = 0;
+    double vectorDivisor=1;
+    double* currentNewVectorPointer=newVectorPointer;
+    double* NewVectorEnd=newVectorPointer+vectorSize;
+    vectorDivisor=calcVectorDivisor(newVectorPointer,vectorSize);
+
+
+    for (; currentNewVectorPointer != NewVectorEnd; currentNewVectorPointer++) {
+        *currentNewVectorPointer/=vectorDivisor;
+        largestDiff = max(fabs(*currentNewVectorPointer - *oldVectorPointer), largestDiff);
+
+    }
+    return largestDiff;
+}
+
+double scanColumnAndWriteToNewVector(FILE *input, double *vector, double *newVectorPointer, int vectorSize,
+                                     double *currentRow) {
     double largestDiff = 0;
     double *oldVectorEnd = vector + vectorSize;
     double *oldVectorPointer = vector;
-
-    for (; oldVectorPointer != oldVectorEnd; oldVectorPointer++,newVectorPointer++) {
+    double vectorDivisor = 1;
+    for (; oldVectorPointer != oldVectorEnd; oldVectorPointer++, newVectorPointer++) {
         double cellNewValue;
         readline(input, currentRow, vectorSize);
-        cellNewValue = calculate(currentRow, vector);
-        largestDiff = max(fabs(cellNewValue - *oldVectorPointer), largestDiff);
+        cellNewValue = calculateNotNormalizedVectorCellValue(currentRow, vector, vectorSize);
         *newVectorPointer = cellNewValue;
 
     }
+    largestDiff = normalizeVector(newVectorPointer, vectorSize, oldVectorPointer);
+
     return largestDiff;
 }
 
 
 double *iterateVector(FILE *input, double epsilon, double *vector, int vectorSize) {
     double *newVector = (double *) calloc(vectorSize, sizeof(double));
-    double *currentRow = calloc(vectorSize, sizeof(double));/* it's true that it should be inside scan, but it's better perf wise*/
+    double *currentRow = calloc(vectorSize,
+                                sizeof(double));/* it's true that it should be inside scan, but it's better perf wise*/
     double largestDiff;
 
     do {
@@ -86,7 +121,7 @@ int main(int argc, char *argv[]) {
     FILE *input;
     int dimension[2] = {0, 0};
     int readStatus = 0;
-    const double epsilon=0.00001;
+    const double epsilon = 0.00001;
     double *b0;/* iteration vector*/
     double *bk;
 
