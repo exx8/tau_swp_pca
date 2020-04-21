@@ -6,7 +6,7 @@
 
 
 FILE *openInputFile(char *const *argv) {
-    FILE *input = fopen(argv[1], "r");
+    FILE *input = fopen(argv[0], "r");
     assert(input != NULL);
     return input;
 }
@@ -34,10 +34,9 @@ void readline(FILE *input, double *currentRow, int size) {
 }
 
 void swap(double **a, double **b) {
-    double **c = NULL;
-    *c = *a;
+    double *c =*a;
     *a = *b;
-    *b = *c;
+    *b = c;
 }
 
 double max(double a, double b) {
@@ -49,7 +48,6 @@ double max(double a, double b) {
 
 double calculateNotNormalizedVectorCellValue(double *currentRow, double *vector, int size) {
     double *currentCellInVector = vector;
-    double *currentRowCell = currentRow;
     double *currentRowEnd = currentRow + size;
     int sum = 0;
     for (; currentRow != currentRowEnd; currentRow++, currentCellInVector++) {
@@ -88,7 +86,6 @@ double scanColumnAndWriteToNewVector(FILE *input, double *vector, double *newVec
     double largestDiff = 0;
     double *oldVectorEnd = vector + vectorSize;
     double *oldVectorPointer = vector;
-    double vectorDivisor = 1;
     for (; oldVectorPointer != oldVectorEnd; oldVectorPointer++, newVectorPointer++) {
         double cellNewValue;
         readline(input, currentRow, vectorSize);
@@ -133,10 +130,9 @@ void writeToFile(FILE *output, const int *dimension, const double *bk) {
     assert(numOfWrites == dimension[1]);
 }
 
-int main(int argc, char *argv[]) {
+int main2(int argc, char *argv[]) {
     FILE *input, *output;
-    int dimension[2] = {0, 0};
-    int readStatus = 0;
+    int dimension[2];
     const double epsilon = 0.00001;
     double *b0;/* iteration vector*/
     double *bk;
@@ -157,6 +153,7 @@ int main(int argc, char *argv[]) {
     free(bk);
     fclose(input);
     fclose(output);
+    return 0;
 }
 
 
