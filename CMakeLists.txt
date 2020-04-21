@@ -3,7 +3,6 @@ project(untitled2 C)
 
 set(CMAKE_C_STANDARD 90)
 
-add_executable(untitled2 cov.c test.cpp)
 
 set(CMAKE_C_STANDARD 90)
 set(GCC_COVERAGE_COMPILE_FLAGS "-ansi -Wall -Wextra -Werror -pedantic-errors")

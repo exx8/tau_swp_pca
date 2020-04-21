@@ -110,46 +110,6 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named untitled2
-
-# Build rule for target.
-untitled2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 untitled2
-.PHONY : untitled2
-
-# fast build rule for target.
-untitled2/fast:
-	$(MAKE) -f CMakeFiles/untitled2.dir/build.make CMakeFiles/untitled2.dir/build
-.PHONY : untitled2/fast
-
-cov.o: cov.c.o
-
-.PHONY : cov.o
-
-# target to build an object file
-cov.c.o:
-	$(MAKE) -f CMakeFiles/untitled2.dir/build.make CMakeFiles/untitled2.dir/cov.c.o
-.PHONY : cov.c.o
-
-cov.i: cov.c.i
-
-.PHONY : cov.i
-
-# target to preprocess a source file
-cov.c.i:
-	$(MAKE) -f CMakeFiles/untitled2.dir/build.make CMakeFiles/untitled2.dir/cov.c.i
-.PHONY : cov.c.i
-
-cov.s: cov.c.s
-
-.PHONY : cov.s
-
-# target to generate assembly for a file
-cov.c.s:
-	$(MAKE) -f CMakeFiles/untitled2.dir/build.make CMakeFiles/untitled2.dir/cov.c.s
-.PHONY : cov.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -158,10 +118,6 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... untitled2"
-	@echo "... cov.o"
-	@echo "... cov.i"
-	@echo "... cov.s"
 .PHONY : help
 
 

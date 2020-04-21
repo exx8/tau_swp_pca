@@ -113,6 +113,10 @@ int main(int argc, char *argv[]) {
 
     fclose(outputFile);
 
+    for (i = 0; i < rowLength; i++) {
+        free(matrix[i]);
+        free(outputMatrix[i]);
+    }
 
     free(matrix);
     free(outputMatrix);
