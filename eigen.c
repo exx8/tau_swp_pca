@@ -46,8 +46,12 @@ double max(double a, double b) {
     return b;
 
 }
+double calculate(const double* currentRow,const  double* vector)
+{
+    /* @todo implement it*/
+}
 
-double scanColumn(const FILE *input, const double *vector, int vectorSize, const double *currentRow,
+double scanColumn( FILE *input, const double *vector, int vectorSize,  double *currentRow,
                   const double *oldVectorEnd, double *oldVectorPointer) {
    double largestDiff = 0;
     for (; oldVectorPointer != oldVectorEnd; oldVectorPointer++) {
@@ -61,10 +65,7 @@ double scanColumn(const FILE *input, const double *vector, int vectorSize, const
     return largestDiff;
 }
 
-double calculate(double* currentRow, double* vector)
-{
-    /* @todo implement it*/
-}
+
 double * iterateVector(FILE *input, double epsilon, double *vector, int vectorSize) {
     double *newVector = (double *) calloc(vectorSize, sizeof(double));
     double *currentRow = calloc(vectorSize, sizeof(double));
