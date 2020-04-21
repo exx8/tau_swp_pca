@@ -50,15 +50,17 @@ double calculate(const double *currentRow, const double *vector) {
     /* @todo implement it*/
 }
 
-double scanColumn(FILE *input, const double *vector, int vectorSize, double *currentRow,
-                  const double *oldVectorEnd, double *oldVectorPointer) {
+double scanColumnAndWriteToNewVector(FILE *input, double *vector, double* newVectorPointer, int vectorSize, double *currentRow) {
     double largestDiff = 0;
-    for (; oldVectorPointer != oldVectorEnd; oldVectorPointer++) {
+    double *oldVectorEnd = vector + vectorSize;
+    double *oldVectorPointer = vector;
+
+    for (; oldVectorPointer != oldVectorEnd; oldVectorPointer++,newVectorPointer++) {
         double cellNewValue;
         readline(input, currentRow, vectorSize);
         cellNewValue = calculate(currentRow, vector);
         largestDiff = max(fabs(cellNewValue - *oldVectorPointer), largestDiff);
-        *oldVectorPointer = cellNewValue;
+        *newVectorPointer = cellNewValue;
 
     }
     return largestDiff;
@@ -67,14 +69,11 @@ double scanColumn(FILE *input, const double *vector, int vectorSize, double *cur
 
 double *iterateVector(FILE *input, double epsilon, double *vector, int vectorSize) {
     double *newVector = (double *) calloc(vectorSize, sizeof(double));
-    double *currentRow = calloc(vectorSize, sizeof(double));
-    double *newVectorPointer = newVector;
-    double *oldVectorEnd = vector + vectorSize;
-    double *oldVectorPointer = vector;
-    double largestDiff = 0;
+    double *currentRow = calloc(vectorSize, sizeof(double));/* it's true that it should be inside scan, but it's better perf wise*/
+    double largestDiff;
 
     do {
-        largestDiff = scanColumn(input, vector, vectorSize, currentRow, oldVectorEnd, oldVectorPointer);
+        largestDiff = scanColumnAndWriteToNewVector(input, vector, newVector, vectorSize, currentRow);
         swap(&newVector, &vector);
         rewind(input);
     } while (largestDiff > epsilon);
