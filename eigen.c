@@ -4,6 +4,7 @@
 #include <time.h>
 #include <math.h>
 
+
 FILE *openInputFile(char *const *argv) {
     FILE *input = fopen(argv[1], "r");
     assert(input != NULL);
@@ -57,25 +58,25 @@ double calculateNotNormalizedVectorCellValue(double *currentRow, double *vector,
     return sum;
 }
 
-double calcVectorDivisor(double* vector,int size)
-{
-    double * vectorEnd = vector + size;
-    double sum=0;
-    for(;vector!=vectorEnd;vector++)
-        sum+=*vector;
+double calcVectorDivisor(double *vector, int size) {
+    double *vectorEnd = vector + size;
+    double sum = 0;
+    for (; vector != vectorEnd; vector++)
+        sum += *vector;
 
     return sqrt(sum);
 }
+
 double normalizeVector(double *newVectorPointer, int vectorSize, const double *oldVectorPointer) {
     double largestDiff = 0;
-    double vectorDivisor=1;
-    double* currentNewVectorPointer=newVectorPointer;
-    double* NewVectorEnd=newVectorPointer+vectorSize;
-    vectorDivisor=calcVectorDivisor(newVectorPointer,vectorSize);
+    double vectorDivisor = 1;
+    double *currentNewVectorPointer = newVectorPointer;
+    double *NewVectorEnd = newVectorPointer + vectorSize;
+    vectorDivisor = calcVectorDivisor(newVectorPointer, vectorSize);
 
 
     for (; currentNewVectorPointer != NewVectorEnd; currentNewVectorPointer++) {
-        *currentNewVectorPointer/=vectorDivisor;
+        *currentNewVectorPointer /= vectorDivisor;
         largestDiff = max(fabs(*currentNewVectorPointer - *oldVectorPointer), largestDiff);
 
     }
@@ -117,8 +118,23 @@ double *iterateVector(FILE *input, double epsilon, double *vector, int vectorSiz
     return newVector;
 }
 
+FILE *openOutputFile(char **argv) {
+    FILE *outputFile = fopen(argv[2], "w");
+    assert(outputFile != NULL);
+
+    return outputFile;
+}
+
+void writeToFile(FILE *output, const int *dimension, const double *bk) {
+    int numOfWrites = 0;
+    numOfWrites = fwrite(dimension, sizeof(int), 2, output);
+    assert(numOfWrites == 2);
+    numOfWrites=fwrite(bk, sizeof(double), dimension[0] * dimension[1], output);
+    assert(numOfWrites == dimension[1]);
+}
+
 int main(int argc, char *argv[]) {
-    FILE *input;
+    FILE *input, *output;
     int dimension[2] = {0, 0};
     int readStatus = 0;
     const double epsilon = 0.00001;
@@ -134,8 +150,13 @@ int main(int argc, char *argv[]) {
     b0 = getVector(dimension[0]);
     bk = iterateVector(input, epsilon, b0, dimension[0]);
     /* @todo write the output file*/
+    output = openInputFile(argv);
+
+    writeToFile(output, dimension, bk);
     free(b0);
     free(bk);
     fclose(input);
+    fclose(output);
 }
+
 
