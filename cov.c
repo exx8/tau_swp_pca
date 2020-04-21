@@ -13,8 +13,18 @@ double rowMean(const double *arr, int n) {
 
 }
 
+void meanRowSubtraction( double row1, int rowLength){
 
-double fillCovDiffInCell(const double row1[], double row2[], double rowMeanArr1, double rowMeanArr2, int rowLength) {
+    double mean = rowMean(row1, rowLength);
+    int i;
+    for(i = 0; i < rowLength; i++) {
+        row1[i] = row1[i] - mean;
+    }
+}
+
+
+
+double fillCovDiffInCell(const double row1[], double row2[], int rowLength) {
 
 
     double sum = 0;
@@ -23,11 +33,13 @@ double fillCovDiffInCell(const double row1[], double row2[], double rowMeanArr1,
     double const* rowEnd=row1+rowLength;
     for (; row1Cell!=rowEnd; row1Cell++,row2Cell++) {
 
-        sum = sum + (*row1Cell - rowMeanArr1) * (*row2Cell - rowMeanArr2);
+        sum = sum + (*row1Cell) * (*row2Cell);
     }
     return sum;
 
 }
+
+/*
 
 void covarianceMatrix(double **inputMatrix, double **outputMatrix, int rowLength) {
 
@@ -64,6 +76,8 @@ void outputMatrixToFile(double **outputMatrix, int outputMatrixDimension[], FILE
     assert(toFileByRow == outputMatrixDimension[0]);
 }
 
+*/
+
 
 int main(int argc, char *argv[]) {
     int matrixDimension[2];
@@ -73,6 +87,7 @@ int main(int argc, char *argv[]) {
     double **matrix;
     double **outputMatrix;
     int i;
+    int j;
     int matrixRow;
     FILE *outputFile;
     int outputMatrixDimension[2] = {0, 0};
@@ -97,19 +112,30 @@ int main(int argc, char *argv[]) {
 
         matrixRow = fread(matrix[i], sizeof(double), columnLength, file); /* Filling Matrix[i]*/
         assert(matrixRow == columnLength);
+        meanRowSubtraction(matrix[i], rowLength) ///Subtracts mean from each row of input matrix
     }
 
     fclose(file);
 
-    /* Function Standardize Given Matrix. Uses Covariance function.*/
-    covarianceMatrix(matrix, outputMatrix, rowLength);
-
-    /* Write outputMatrix to File*/
+    /* Going over input matrix, calculating and writing covariance row by row.*/
     outputFile = fopen(argv[2], "w");
     assert(outputFile != NULL);
     outputMatrixDimension[0] = rowLength;
     outputMatrixDimension[1] = columnLength;
-    outputMatrixToFile(outputMatrix, outputMatrixDimension, outputFile);
+
+    int rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
+    assert(rowsAndColumns == 2);
+
+    /// Calculating covariance and writing done row by row
+    for(i = 0; i < rowLength; i++) {
+        for(j = 0; j < rowLength; j++){
+            outputMatrix[i][j] = fillCovDiffInCell(matrix[i], matrix[j], rowLength)
+        }
+        int toFileByRow = 0;
+        toFileByRow = fwrite(matrix[i], sizeof(double), outputMatrixDimension[0], outputFile);
+        assert(toFileByRow == outputMatrixDimension[0]);
+    }
+
 
     fclose(outputFile);
 

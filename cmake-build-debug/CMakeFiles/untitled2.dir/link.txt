@@ -1,1 +1,0 @@
-/usr/bin/cc  -ansi -Wall -Wextra -Werror -pedantic-errors -g   CMakeFiles/untitled2.dir/cov.c.o CMakeFiles/untitled2.dir/eigen.c.o  -o untitled2 

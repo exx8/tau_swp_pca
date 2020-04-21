@@ -1,2 +1,0 @@
-/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug/CMakeFiles/edit_cache.dir
