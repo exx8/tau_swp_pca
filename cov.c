@@ -60,7 +60,7 @@ void outputMatrixToFile(double **outputMatrix, int *outputMatrixDimension, FILE 
 }
 
 
-int main(int argc, char *argv[]) {
+int main2(int argc, char *argv[]) {
     int matrixDimension[2];
     int numberOfParameters=0;
     int rowLength=0;

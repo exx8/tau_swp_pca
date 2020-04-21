@@ -6,7 +6,7 @@
 
 
 FILE *openInputFile(char *const *argv) {
-    FILE *input = fopen(argv[0], "r");
+    FILE *input = fopen(argv[1], "r");
     assert(input != NULL);
     return input;
 }
@@ -29,12 +29,12 @@ double *getVector(int size) {
 
 void readline(FILE *input, double *currentRow, int size) {
     int n = fread(currentRow, sizeof(double), size, input);
-    assert(n != size);
+    assert(n == size);
 
 }
 
 void swap(double **a, double **b) {
-    double *c =*a;
+    double *c = *a;
     *a = *b;
     *b = c;
 }
@@ -47,11 +47,12 @@ double max(double a, double b) {
 }
 
 double calculateNotNormalizedVectorCellValue(double *currentRow, double *vector, int size) {
+    double *currentRowPointer = currentRow;
     double *currentCellInVector = vector;
     double *currentRowEnd = currentRow + size;
     int sum = 0;
-    for (; currentRow != currentRowEnd; currentRow++, currentCellInVector++) {
-        sum += *currentRow * (*currentCellInVector);
+    for (; currentRowPointer != currentRowEnd; currentRowPointer++, currentCellInVector++) {
+        sum += *currentRowPointer * (*currentCellInVector);
     }
     return sum;
 }
@@ -83,6 +84,7 @@ double normalizeVector(double *newVectorPointer, int vectorSize, const double *o
 
 double scanColumnAndWriteToNewVector(FILE *input, double *vector, double *newVectorPointer, int vectorSize,
                                      double *currentRow) {
+
     double largestDiff = 0;
     double *oldVectorEnd = vector + vectorSize;
     double *oldVectorPointer = vector;
@@ -126,18 +128,18 @@ void writeToFile(FILE *output, const int *dimension, const double *bk) {
     int numOfWrites = 0;
     numOfWrites = fwrite(dimension, sizeof(int), 2, output);
     assert(numOfWrites == 2);
-    numOfWrites=fwrite(bk, sizeof(double), dimension[0] * dimension[1], output);
+    numOfWrites = fwrite(bk, sizeof(double), dimension[0] * dimension[1], output);
     assert(numOfWrites == dimension[1]);
 }
 
-int main2(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
     FILE *input, *output;
     int dimension[2];
     const double epsilon = 0.00001;
     double *b0;/* iteration vector*/
     double *bk;
 
-    assert(argc == 2);
+    assert(argc == 3);
     srand(time(NULL));
 
 

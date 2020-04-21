@@ -11,21 +11,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbfb9238-46f9-4cf7-985a-2f2e19ca61ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/time" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/time.py" afterDir="false" />
+    <list default="true" id="1e591f87-db3e-4097-9bf6-6f5d87f396c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/C.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/cov.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/cov.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/link.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/untitled2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/untitled2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cov" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cov.c" beforeDir="false" afterPath="$PROJECT_DIR$/cov.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cov.o" beforeDir="false" afterPath="$PROJECT_DIR$/cov.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eigen.c" beforeDir="false" afterPath="$PROJECT_DIR$/eigen.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,16 +57,16 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/../PCL" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
   </component>
   <component name="RunManager">
-    <configuration name="untitled2" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="&quot;./matrix ./output&quot;" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="untitled2" TARGET_NAME="untitled2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="untitled2" RUN_TARGET_NAME="untitled2">
+    <configuration name="untitled2" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="$PROJECT_DIR$/matrix $PROJECT_DIR$/output" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="untitled2" TARGET_NAME="untitled2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="untitled2" RUN_TARGET_NAME="untitled2">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -222,10 +214,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="write to file" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587505232096">
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587507187250">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587505232096" />
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587507187250" />
     <state x="1067" y="585" width="578" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587503108282">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -246,46 +238,46 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1587038480716" />
-    <state width="1807" height="344" key="GridCell.Tab.0.bottom" timestamp="1587505654491">
+    <state width="1807" height="344" key="GridCell.Tab.0.bottom" timestamp="1587508598541">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1585930976563" />
     <state width="1358" height="200" key="GridCell.Tab.0.bottom/0.23.1440.824@0.23.1440.824" timestamp="1585917167782" />
-    <state width="1807" height="344" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587505654491" />
-    <state width="1807" height="344" key="GridCell.Tab.0.center" timestamp="1587505654490">
+    <state width="1807" height="344" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587508598541" />
+    <state width="1807" height="344" key="GridCell.Tab.0.center" timestamp="1587508598540">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1585930976562" />
     <state width="1358" height="200" key="GridCell.Tab.0.center/0.23.1440.824@0.23.1440.824" timestamp="1585917167781" />
-    <state width="1807" height="344" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587505654490" />
-    <state width="1807" height="344" key="GridCell.Tab.0.left" timestamp="1587505654490">
+    <state width="1807" height="344" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587508598540" />
+    <state width="1807" height="344" key="GridCell.Tab.0.left" timestamp="1587508598540">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1585930976561" />
     <state width="1358" height="200" key="GridCell.Tab.0.left/0.23.1440.824@0.23.1440.824" timestamp="1585917167780" />
-    <state width="1807" height="344" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587505654490" />
-    <state width="1807" height="344" key="GridCell.Tab.0.right" timestamp="1587505654491">
+    <state width="1807" height="344" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587508598540" />
+    <state width="1807" height="344" key="GridCell.Tab.0.right" timestamp="1587508598540">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1585930976563" />
     <state width="1358" height="200" key="GridCell.Tab.0.right/0.23.1440.824@0.23.1440.824" timestamp="1585917167782" />
-    <state width="1807" height="344" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587505654491" />
-    <state width="1807" height="344" key="GridCell.Tab.1.bottom" timestamp="1587505654554">
+    <state width="1807" height="344" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587508598540" />
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom" timestamp="1587508598596">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587505654554" />
-    <state width="1807" height="344" key="GridCell.Tab.1.center" timestamp="1587505654553">
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587508598596" />
+    <state width="1807" height="344" key="GridCell.Tab.1.center" timestamp="1587508598595">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587505654553" />
-    <state width="1807" height="344" key="GridCell.Tab.1.left" timestamp="1587505654553">
+    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587508598595" />
+    <state width="1807" height="344" key="GridCell.Tab.1.left" timestamp="1587508598595">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587505654553" />
-    <state width="1807" height="344" key="GridCell.Tab.1.right" timestamp="1587505654554">
+    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587508598595" />
+    <state width="1807" height="344" key="GridCell.Tab.1.right" timestamp="1587508598595">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587505654554" />
+    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587508598595" />
     <state x="588" y="274" width="800" height="556" key="Vcs.Push.Dialog.v2" timestamp="1587502396201">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -315,13 +307,23 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/eigen.c</url>
-          <line>127</line>
+          <line>133</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/eigen.c</url>
-          <line>16</line>
-          <option name="timeStamp" value="9" />
+          <line>120</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/eigen.c</url>
+          <line>116</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/eigen.c</url>
+          <line>99</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -335,6 +337,9 @@
         <watch expression="dimension[1]" language="ObjectiveC" />
         <watch expression="**dimension" language="ObjectiveC" />
         <watch expression="dimension2" language="ObjectiveC" />
+        <watch expression="argv[1]" language="ObjectiveC" />
+        <watch expression="currentRow[11]" language="ObjectiveC" />
+        <watch expression="currentRow[2]" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>
