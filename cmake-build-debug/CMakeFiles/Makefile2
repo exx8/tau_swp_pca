@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = /home/eran/CLionProjects/tau_swp_pca/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/untitled2.dir/all
+all:
 
 .PHONY : all
 
@@ -63,11 +63,12 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/untitled2.dir/clean
+clean:
 
 .PHONY : clean
 
 #=============================================================================
+<<<<<<< HEAD
 # Target rules for target CMakeFiles/untitled2.dir
 
 # All Build rule for target.
@@ -95,6 +96,8 @@ CMakeFiles/untitled2.dir/clean:
 .PHONY : CMakeFiles/untitled2.dir/clean
 
 #=============================================================================
+=======
+>>>>>>> aaa0bace0ef268915ac610d3a6a3af4bc29cd25e
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.
