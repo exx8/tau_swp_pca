@@ -26,7 +26,6 @@ double *getVector(int size) {
 }
 
 
-
 void readline(FILE *input, double *currentRow, int size) {
     int n = fread(currentRow, sizeof(double), size, input);
     assert(n != size);
@@ -46,14 +45,14 @@ double max(double a, double b) {
     return b;
 
 }
-double calculate(const double* currentRow,const  double* vector)
-{
+
+double calculate(const double *currentRow, const double *vector) {
     /* @todo implement it*/
 }
 
-double scanColumn( FILE *input, const double *vector, int vectorSize,  double *currentRow,
+double scanColumn(FILE *input, const double *vector, int vectorSize, double *currentRow,
                   const double *oldVectorEnd, double *oldVectorPointer) {
-   double largestDiff = 0;
+    double largestDiff = 0;
     for (; oldVectorPointer != oldVectorEnd; oldVectorPointer++) {
         double cellNewValue;
         readline(input, currentRow, vectorSize);
@@ -66,7 +65,7 @@ double scanColumn( FILE *input, const double *vector, int vectorSize,  double *c
 }
 
 
-double * iterateVector(FILE *input, double epsilon, double *vector, int vectorSize) {
+double *iterateVector(FILE *input, double epsilon, double *vector, int vectorSize) {
     double *newVector = (double *) calloc(vectorSize, sizeof(double));
     double *currentRow = calloc(vectorSize, sizeof(double));
     double *newVectorPointer = newVector;
@@ -80,7 +79,6 @@ double * iterateVector(FILE *input, double epsilon, double *vector, int vectorSi
         rewind(input);
     } while (largestDiff > epsilon);
     swap(&newVector, &vector);
-    free(newVector);
     free(currentRow);
     return newVector;
 }
@@ -89,7 +87,9 @@ int main(int argc, char *argv[]) {
     FILE *input;
     int dimension[2] = {0, 0};
     int readStatus = 0;
-    double *bk;/* iteration vector*/
+    const double epsilon=0.00001;
+    double *b0;/* iteration vector*/
+    double *bk;
 
     assert(argc == 2);
     srand(time(NULL));
@@ -97,9 +97,10 @@ int main(int argc, char *argv[]) {
 
     input = openInputFile(argv);
     getDimension(input, dimension);
-    bk = getVector(dimension[0]);
-
+    b0 = getVector(dimension[0]);
+    bk = iterateVector(input, epsilon, b0, dimension[0]);
     /* @todo write the output file*/
+    free(b0);
     free(bk);
     fclose(input);
 }
