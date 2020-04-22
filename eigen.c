@@ -62,41 +62,46 @@ double calcVectorDivisor(double *vector, int size) {
     double *vectorPointer = vector;
     double sum = 0;
     for (; vectorPointer != vectorEnd; vectorPointer++) {
-        sum += vectorPointer[0]; /* this is problematic*/
+        sum += vectorPointer[0];
     }
     return sqrt(sum);
 }
 
-double normalizeVector(double *newVectorPointer, int vectorSize, const double *oldVectorPointer) {
+double normalizeVector(double *newVectorPointer, int vectorSize,  double *oldVectorPointer) {
     double largestDiff = 0;
     double vectorDivisor = 1;
     double *currentNewVectorPointer = newVectorPointer;
     double *NewVectorEnd = newVectorPointer + vectorSize;
+
     vectorDivisor = calcVectorDivisor(newVectorPointer, vectorSize);
 
 
     for (; currentNewVectorPointer != NewVectorEnd; currentNewVectorPointer++) {
+        double NewVectorCellValue = *currentNewVectorPointer;
+        double oldVectorCellValue = *oldVectorPointer;
         *currentNewVectorPointer /= vectorDivisor;
-        largestDiff = max(fabs(*currentNewVectorPointer - *oldVectorPointer), largestDiff);
+        largestDiff = max(fabs(NewVectorCellValue - oldVectorCellValue), largestDiff);
 
     }
     return largestDiff;
 }
 
-double scanColumnAndWriteToNewVector(FILE *input, double *vector, double *newVectorPointer, int vectorSize,
+double scanColumnAndWriteToNewVector(FILE *input, double *vector, double *newVector, int vectorSize,
                                      double *currentRow) {
 
     double largestDiff = 0;
     double *oldVectorEnd = vector + vectorSize;
     double *oldVectorPointer = vector;
+    double *newVectorPointer = newVector;
     for (; oldVectorPointer != oldVectorEnd; oldVectorPointer++, newVectorPointer++) {
         double cellNewValue;
         readline(input, currentRow, vectorSize);
+
         cellNewValue = calculateNotNormalizedVectorCellValue(currentRow, vector, vectorSize);
         *newVectorPointer = cellNewValue;
 
     }
-    largestDiff = normalizeVector(newVectorPointer, vectorSize, oldVectorPointer);
+    largestDiff = normalizeVector(newVector, vectorSize, vector);
 
     return largestDiff;
 }
@@ -109,12 +114,15 @@ double *iterateVector(FILE *input, double epsilon, double *vector, int vectorSiz
     double largestDiff;
 
     do {
+
         largestDiff = scanColumnAndWriteToNewVector(input, vector, newVector, vectorSize, currentRow);
+
         swap(&newVector, &vector);
         rewind(input);
     } while (largestDiff > epsilon);
     swap(&newVector, &vector);
     free(currentRow);
+    free(vector);
     return newVector;
 }
 
