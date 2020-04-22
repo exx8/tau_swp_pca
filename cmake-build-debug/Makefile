@@ -110,7 +110,6 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-<<<<<<< HEAD
 #=============================================================================
 # Target rules for targets named untitled2
 
@@ -178,8 +177,6 @@ eigen.c.s:
 	$(MAKE) -f CMakeFiles/untitled2.dir/build.make CMakeFiles/untitled2.dir/eigen.c.s
 .PHONY : eigen.c.s
 
-=======
->>>>>>> aaa0bace0ef268915ac610d3a6a3af4bc29cd25e
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -188,7 +185,6 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-<<<<<<< HEAD
 	@echo "... untitled2"
 	@echo "... cov.o"
 	@echo "... cov.i"
@@ -196,8 +192,6 @@ help:
 	@echo "... eigen.o"
 	@echo "... eigen.i"
 	@echo "... eigen.s"
-=======
->>>>>>> aaa0bace0ef268915ac610d3a6a3af4bc29cd25e
 .PHONY : help
 
 

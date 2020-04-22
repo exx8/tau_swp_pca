@@ -37,20 +37,53 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="untitled2">
+				<Option output="/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug/untitled2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug/Makefile&quot;  VERBOSE=1 untitled2"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="untitled2/fast">
+				<Option output="/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug/untitled2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug/Makefile&quot;  VERBOSE=1 untitled2/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/eran/CLionProjects/tau_swp_pca/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
-<<<<<<< HEAD
 		<Unit filename="/home/eran/CLionProjects/tau_swp_pca/cov.c">
 			<Option target="untitled2"/>
 		</Unit>
-<<<<<<< HEAD
-		<Unit filename="/home/eran/CLionProjects/tau_swp_pca/test.cpp">
-=======
 		<Unit filename="/home/eran/CLionProjects/tau_swp_pca/eigen.c">
->>>>>>> 54718e8e252bd4506b7b56d7036c1ac122b83405
 			<Option target="untitled2"/>
 		</Unit>
-=======
->>>>>>> aaa0bace0ef268915ac610d3a6a3af4bc29cd25e
 		<Unit filename="/home/eran/CLionProjects/tau_swp_pca/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

@@ -55,6 +55,8 @@ int main(int argc, char *argv[]) {
     int outputMatrixDimension[2] = {0, 0};
     clock_t start,end;
     FILE *file;
+    int rowsAndColumns;
+    int toFileByRow = 0;
 
     start=clock();
     file = fopen(argv[1], "r");
@@ -86,7 +88,7 @@ int main(int argc, char *argv[]) {
     outputMatrixDimension[1] = rowLength;   /// output Matrix is square
     outputMatrixDimension[0] = rowLength;
 
-    int rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
+    rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
     assert(rowsAndColumns == 2);
 
     /// Calculating covariance and writing done row by row
@@ -95,7 +97,6 @@ int main(int argc, char *argv[]) {
             outputMatrix[i][j] = fillCovDiffInCell(matrix[i], matrix[j], columnLength)  ///Iteration by columns
         }
 
-        int toFileByRow = 0;
         toFileByRow = fwrite(outputMatrix[i], sizeof(double), outputMatrixDimension[0], outputFile);
         assert(toFileByRow == outputMatrixDimension[0]);
     }
