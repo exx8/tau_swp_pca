@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
     outputMatrix = (double **) malloc(rowLength * sizeof(double *));
     for (i = 0; i < rowLength; i++) {
         matrix[i] = (double *) malloc(columnLength * sizeof(double));
-        outputMatrix[i] = (double *) malloc(columnLength * sizeof(double));
+        outputMatrix[i] = (double *) malloc(rowLength * sizeof(double));
 
         matrixRow = fread(matrix[i], sizeof(double), columnLength, file); /* Filling Matrix[i]*/
         assert(matrixRow == columnLength);
