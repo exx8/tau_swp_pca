@@ -1,4 +1,4 @@
-FLAGS = -ansi -Wall -Wextra -Werror -pedantic-errors
+FLAGS =  -Wall -Wextra -Werror -pedantic-errors
 LIBS = -lm
 
 all: cov eigen

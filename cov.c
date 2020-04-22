@@ -13,11 +13,9 @@ double rowMean(const double *arr, int n) {
 
 }
 
-<<<<<<< HEAD
-void subtractMeanFromRow(double row1[], int columnLength){
-=======
+
 void subtractMeanFromRow(double *row1, int columnLength){
->>>>>>> 9dc64e9b6bcf876cb835bd1f10794b4e01094393
+
 
     double mean = rowMean(row1, columnLength);
     int i;
@@ -28,8 +26,10 @@ void subtractMeanFromRow(double *row1, int columnLength){
 
 
 
-double fillCovDiffInCell(const double row1[], double row2[], int columnLength) {
+double fillCovDiffInCell(double row1[], double row2[], int columnLength) {
 
+
+   
 
     double sum = 0;
     double const* row1Cell=row1;
@@ -61,6 +61,7 @@ int main(int argc, char *argv[]) {
     int rowsAndColumns;
     int toFileByRow = 0;
 
+
     start=clock();
     file = fopen(argv[1], "r");
     assert(file != NULL);
@@ -80,11 +81,10 @@ int main(int argc, char *argv[]) {
 
         matrixRow = fread(matrix[i], sizeof(double), columnLength, file); /* Filling Matrix[i]*/
         assert(matrixRow == columnLength);
-<<<<<<< HEAD
+
+
         subtractMeanFromRow(matrix[i], columnLength); ///Subtracts mean from each row of input matrix
-=======
-        subtractMeanFromRow(matrix[i], columnLength) ;/*Subtracts mean from each row of input matrix*/
->>>>>>> 9dc64e9b6bcf876cb835bd1f10794b4e01094393
+
     }
 
     fclose(file);
@@ -98,19 +98,20 @@ int main(int argc, char *argv[]) {
     rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
     assert(rowsAndColumns == 2);
 
+
+
     /* Calculating covariance and writing done row by row*/
     for(i = 0; i < rowLength; i++) {
         for(j = 0; j < rowLength; j++){
-<<<<<<< HEAD
-            outputMatrix[i][j] = fillCovDiffInCell(matrix[i], matrix[j], columnLength);  ///Iteration by columns
-=======
+
             outputMatrix[i][j] = fillCovDiffInCell(matrix[i], matrix[j], columnLength);  /*Iteration by columns*/
->>>>>>> 9dc64e9b6bcf876cb835bd1f10794b4e01094393
         }
 
         toFileByRow = fwrite(outputMatrix[i], sizeof(double), outputMatrixDimension[0], outputFile);
         assert(toFileByRow == outputMatrixDimension[0]);
     }
+
+
 
     fclose(outputFile);
 

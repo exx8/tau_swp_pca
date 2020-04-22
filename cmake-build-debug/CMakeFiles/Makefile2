@@ -74,12 +74,12 @@ preinstall:
 CMakeFiles/untitled2.dir/all:
 	$(MAKE) -f CMakeFiles/untitled2.dir/build.make CMakeFiles/untitled2.dir/depend
 	$(MAKE) -f CMakeFiles/untitled2.dir/build.make CMakeFiles/untitled2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/nazaraburas/CLionProjects/SoftwareProject1/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target untitled2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/nazaraburas/CLionProjects/SoftwareProject1/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target untitled2"
 .PHONY : CMakeFiles/untitled2.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/untitled2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nazaraburas/CLionProjects/SoftwareProject1/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nazaraburas/CLionProjects/SoftwareProject1/cmake-build-debug/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/untitled2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nazaraburas/CLionProjects/SoftwareProject1/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/untitled2.dir/rule

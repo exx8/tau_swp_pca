@@ -150,33 +150,6 @@ cov.c.s:
 	$(MAKE) -f CMakeFiles/untitled2.dir/build.make CMakeFiles/untitled2.dir/cov.c.s
 .PHONY : cov.c.s
 
-eigen.o: eigen.c.o
-
-.PHONY : eigen.o
-
-# target to build an object file
-eigen.c.o:
-	$(MAKE) -f CMakeFiles/untitled2.dir/build.make CMakeFiles/untitled2.dir/eigen.c.o
-.PHONY : eigen.c.o
-
-eigen.i: eigen.c.i
-
-.PHONY : eigen.i
-
-# target to preprocess a source file
-eigen.c.i:
-	$(MAKE) -f CMakeFiles/untitled2.dir/build.make CMakeFiles/untitled2.dir/eigen.c.i
-.PHONY : eigen.c.i
-
-eigen.s: eigen.c.s
-
-.PHONY : eigen.s
-
-# target to generate assembly for a file
-eigen.c.s:
-	$(MAKE) -f CMakeFiles/untitled2.dir/build.make CMakeFiles/untitled2.dir/eigen.c.s
-.PHONY : eigen.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -189,9 +162,6 @@ help:
 	@echo "... cov.o"
 	@echo "... cov.i"
 	@echo "... cov.s"
-	@echo "... eigen.o"
-	@echo "... eigen.i"
-	@echo "... eigen.s"
 .PHONY : help
 
 
