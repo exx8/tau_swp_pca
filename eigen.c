@@ -67,8 +67,7 @@ double calcVectorDivisor(double *vector, int size) {
     return sqrt(sum);
 }
 
-double normalizeVector(double *newVectorPointer, int vectorSize,  double *oldVectorPointer) {
-    double largestDiff = 0;
+void normalizeVector(double *newVectorPointer, int vectorSize) {
     double vectorDivisor = 1;
     double *currentNewVectorPointer = newVectorPointer;
     double *NewVectorEnd = newVectorPointer + vectorSize;
@@ -77,13 +76,9 @@ double normalizeVector(double *newVectorPointer, int vectorSize,  double *oldVec
 
 
     for (; currentNewVectorPointer != NewVectorEnd; currentNewVectorPointer++) {
-        double newVectorCellValue = *currentNewVectorPointer;
-        double oldVectorCellValue = *oldVectorPointer;
         *currentNewVectorPointer /= vectorDivisor;
-        largestDiff = max(fabs(newVectorCellValue - oldVectorCellValue), largestDiff);
 
     }
-    return largestDiff;
 }
 
 double scanColumnAndWriteToNewVector(FILE *input, double *vector, double *newVector, int vectorSize,
@@ -101,7 +96,11 @@ double scanColumnAndWriteToNewVector(FILE *input, double *vector, double *newVec
         *newVectorPointer = cellNewValue;
 
     }
-    largestDiff = normalizeVector(newVector, vectorSize, vector);
+    normalizeVector(newVector, vectorSize);
+
+    for(oldVectorPointer=vector,newVectorPointer=newVector;oldVectorPointer != oldVectorEnd;oldVectorPointer++, newVectorPointer++)
+    largestDiff = max(fabs(*oldVectorPointer - *newVectorPointer), largestDiff);
+
 
     return largestDiff;
 }
@@ -135,10 +134,11 @@ FILE *openOutputFile(char **argv) {
 
 void writeToFile(FILE *output, const int *dimension, const double *bk) {
     int numOfWrites = 0;
+    int matrixSize = dimension[0] * dimension[1];
     numOfWrites = fwrite(dimension, sizeof(int), 2, output);
     assert(numOfWrites == 2);
-    numOfWrites = fwrite(bk, sizeof(double), dimension[0] * dimension[1], output);
-    assert(numOfWrites == dimension[1]*dimension[0]);
+    numOfWrites = fwrite(bk, sizeof(double), matrixSize, output);
+    assert(numOfWrites == matrixSize);
 }
 
 int main(int argc, char *argv[]) {
