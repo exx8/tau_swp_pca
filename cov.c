@@ -13,7 +13,11 @@ double rowMean(const double *arr, int n) {
 
 }
 
+<<<<<<< HEAD
 void subtractMeanFromRow(double row1[], int columnLength){
+=======
+void subtractMeanFromRow(double *row1, int columnLength){
+>>>>>>> 9dc64e9b6bcf876cb835bd1f10794b4e01094393
 
     double mean = rowMean(row1, columnLength);
     int i;
@@ -67,7 +71,7 @@ int main(int argc, char *argv[]) {
     rowLength = matrixDimension[1];
     columnLength = matrixDimension[0];
 
-    ///Input Matrix is standardized while being read
+    /*Input Matrix is standardized while being read*/
     matrix = (double **) malloc(rowLength * sizeof(double *));
     outputMatrix = (double **) malloc(rowLength * sizeof(double *));
     for (i = 0; i < rowLength; i++) {
@@ -76,24 +80,32 @@ int main(int argc, char *argv[]) {
 
         matrixRow = fread(matrix[i], sizeof(double), columnLength, file); /* Filling Matrix[i]*/
         assert(matrixRow == columnLength);
+<<<<<<< HEAD
         subtractMeanFromRow(matrix[i], columnLength); ///Subtracts mean from each row of input matrix
+=======
+        subtractMeanFromRow(matrix[i], columnLength) ;/*Subtracts mean from each row of input matrix*/
+>>>>>>> 9dc64e9b6bcf876cb835bd1f10794b4e01094393
     }
 
     fclose(file);
 
-    ///Going over input matrix, calculating and writing covariance row by row
+    /*Going over input matrix, calculating and writing covariance row by row*/
     outputFile = fopen(argv[2], "w");
     assert(outputFile != NULL);
-    outputMatrixDimension[1] = rowLength;   /// output Matrix is square
+    outputMatrixDimension[1] = rowLength;   /* output Matrix is square*/
     outputMatrixDimension[0] = rowLength;
 
     rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
     assert(rowsAndColumns == 2);
 
-    /// Calculating covariance and writing done row by row
+    /* Calculating covariance and writing done row by row*/
     for(i = 0; i < rowLength; i++) {
         for(j = 0; j < rowLength; j++){
+<<<<<<< HEAD
             outputMatrix[i][j] = fillCovDiffInCell(matrix[i], matrix[j], columnLength);  ///Iteration by columns
+=======
+            outputMatrix[i][j] = fillCovDiffInCell(matrix[i], matrix[j], columnLength);  /*Iteration by columns*/
+>>>>>>> 9dc64e9b6bcf876cb835bd1f10794b4e01094393
         }
 
         toFileByRow = fwrite(outputMatrix[i], sizeof(double), outputMatrixDimension[0], outputFile);
