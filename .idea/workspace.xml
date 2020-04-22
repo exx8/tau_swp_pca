@@ -13,6 +13,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1e591f87-db3e-4097-9bf6-6f5d87f396c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/cov.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/cov.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/untitled2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/untitled2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eigen.c" beforeDir="false" afterPath="$PROJECT_DIR$/eigen.c" afterDir="false" />
     </list>
@@ -96,7 +98,7 @@
       <workItem from="1587333811556" duration="1428000" />
       <workItem from="1587485301972" duration="6561000" />
       <workItem from="1587501944024" duration="3661000" />
-      <workItem from="1587569596796" duration="1256000" />
+      <workItem from="1587569596796" duration="2180000" />
     </task>
     <task id="LOCAL-00001" summary="first steps.">
       <created>1587420912532</created>
@@ -203,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587569675599</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fixes major pointer issue and memory leak.">
+      <created>1587570887038</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1587570887038</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,17 +234,18 @@
     <MESSAGE value="write to file" />
     <MESSAGE value="bugfixes." />
     <MESSAGE value="more changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="more changes." />
+    <MESSAGE value="fixes major pointer issue and memory leak." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes major pointer issue and memory leak." />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587509124395">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587509124395" />
-    <state x="1067" y="585" width="578" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587503108282">
+    <state x="1067" y="585" width="578" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587572216734">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="1067" y="585" width="578" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1587503108282" />
+    <state x="1067" y="585" width="578" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1587572216734" />
     <state x="747" y="383" width="481" height="337" key="#com.intellij.tools.ToolEditorDialog" timestamp="1587503070716">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -244,58 +254,58 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="729" y="405" width="518" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/67.27.1853.1053@67.27.1853.1053" timestamp="1587334404148" />
-    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1587569675291">
+    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1587570886905">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1587569675291" />
+    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1587570886905" />
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1587038480716">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1587038480716" />
-    <state width="1807" height="344" key="GridCell.Tab.0.bottom" timestamp="1587570809276">
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom" timestamp="1587572232891">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1585930976563" />
     <state width="1358" height="200" key="GridCell.Tab.0.bottom/0.23.1440.824@0.23.1440.824" timestamp="1585917167782" />
-    <state width="1807" height="344" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587570809276" />
-    <state width="1807" height="344" key="GridCell.Tab.0.center" timestamp="1587570809275">
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587572232891" />
+    <state width="1807" height="278" key="GridCell.Tab.0.center" timestamp="1587572232891">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1585930976562" />
     <state width="1358" height="200" key="GridCell.Tab.0.center/0.23.1440.824@0.23.1440.824" timestamp="1585917167781" />
-    <state width="1807" height="344" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587570809275" />
-    <state width="1807" height="344" key="GridCell.Tab.0.left" timestamp="1587570809275">
+    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587572232891" />
+    <state width="1807" height="278" key="GridCell.Tab.0.left" timestamp="1587572232890">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1585930976561" />
     <state width="1358" height="200" key="GridCell.Tab.0.left/0.23.1440.824@0.23.1440.824" timestamp="1585917167780" />
-    <state width="1807" height="344" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587570809275" />
-    <state width="1807" height="344" key="GridCell.Tab.0.right" timestamp="1587570809276">
+    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587572232890" />
+    <state width="1807" height="278" key="GridCell.Tab.0.right" timestamp="1587572232891">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1585930976563" />
     <state width="1358" height="200" key="GridCell.Tab.0.right/0.23.1440.824@0.23.1440.824" timestamp="1585917167782" />
-    <state width="1807" height="344" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587570809276" />
-    <state width="1807" height="344" key="GridCell.Tab.1.bottom" timestamp="1587570809595">
+    <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587572232891" />
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom" timestamp="1587572130211">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587570809595" />
-    <state width="1807" height="344" key="GridCell.Tab.1.center" timestamp="1587570809594">
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587572130211" />
+    <state width="1807" height="344" key="GridCell.Tab.1.center" timestamp="1587572130210">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587570809594" />
-    <state width="1807" height="344" key="GridCell.Tab.1.left" timestamp="1587570809594">
+    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587572130210" />
+    <state width="1807" height="344" key="GridCell.Tab.1.left" timestamp="1587572130209">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587570809594" />
-    <state width="1807" height="344" key="GridCell.Tab.1.right" timestamp="1587570809594">
+    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587572130209" />
+    <state width="1807" height="344" key="GridCell.Tab.1.right" timestamp="1587572130210">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587570809594" />
-    <state x="588" y="274" width="800" height="556" key="Vcs.Push.Dialog.v2" timestamp="1587569677895">
+    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587572130210" />
+    <state x="588" y="274" width="800" height="556" key="Vcs.Push.Dialog.v2" timestamp="1587570888856">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="274" width="800" height="556" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1587569677895" />
+    <state x="588" y="274" width="800" height="556" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1587570888856" />
     <state x="67" y="27" width="1440" height="824" key="com.intellij.ide.util.TipDialog" timestamp="1586977838798">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -321,20 +331,6 @@
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1587569934267" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/eigen.c</url>
-          <line>138</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/eigen.c</url>
-          <line>122</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="current++" language="ObjectiveC" />
@@ -349,8 +345,7 @@
         <watch expression="currentRow[11]" language="ObjectiveC" />
         <watch expression="currentRow[2]" language="ObjectiveC" />
         <watch expression="vectorPointer" language="ObjectiveC" />
-        <watch expression="*vectorPointer" language="ObjectiveC" />
-        <watch expression="vectorPointer+10" language="ObjectiveC" />
+        <watch expression="numOfWrites" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>

@@ -138,7 +138,7 @@ void writeToFile(FILE *output, const int *dimension, const double *bk) {
     numOfWrites = fwrite(dimension, sizeof(int), 2, output);
     assert(numOfWrites == 2);
     numOfWrites = fwrite(bk, sizeof(double), dimension[0] * dimension[1], output);
-    assert(numOfWrites == dimension[1]);
+    assert(numOfWrites == dimension[1]*dimension[0]);
 }
 
 int main(int argc, char *argv[]) {
@@ -157,7 +157,7 @@ int main(int argc, char *argv[]) {
     b0 = getVector(dimension[0]);
     bk = iterateVector(input, epsilon, b0, dimension[0]);
     /* @todo write the output file*/
-    output = openInputFile(argv);
+    output = openOutputFile(argv);
 
     writeToFile(output, dimension, bk);
     free(b0);
