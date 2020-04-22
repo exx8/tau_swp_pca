@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/nazaraburas/CLionProjects/SoftwareProject1
+/home/eran/softwares/clion-2019.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/eran/CLionProjects/tau_swp_pca
 CMake Error at CMakeLists.txt:6:
   Parse error.  Expected a command name, got unquoted argument with text
   "<<<<<<<".
