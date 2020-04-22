@@ -1,4 +1,4 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 #include "time.h"
@@ -13,24 +13,24 @@ double rowMean(const double *arr, int n) {
 
 }
 
-void meanRowSubtraction( double row1, int rowLength){
+void subtractMeanFromRow(double row1, int columnLength){
 
-    double mean = rowMean(row1, rowLength);
+    double mean = rowMean(row1, columnLength);
     int i;
-    for(i = 0; i < rowLength; i++) {
+    for(i = 0; i < columnLength; i++) {
         row1[i] = row1[i] - mean;
     }
 }
 
 
 
-double fillCovDiffInCell(const double row1[], double row2[], int rowLength) {
+double fillCovDiffInCell(const double row1[], double row2[], int columnLength) {
 
 
     double sum = 0;
     double const* row1Cell=row1;
     double * row2Cell=row2;
-    double const* rowEnd=row1+rowLength;
+    double const* rowEnd=row1+columnLength;
     for (; row1Cell!=rowEnd; row1Cell++,row2Cell++) {
 
         sum = sum + (*row1Cell) * (*row2Cell);
@@ -39,44 +39,6 @@ double fillCovDiffInCell(const double row1[], double row2[], int rowLength) {
 
 }
 
-/*
-
-void covarianceMatrix(double **inputMatrix, double **outputMatrix, int rowLength) {
-
-    int p;
-    int j;
-    int i;
-
-    double *rowMeansArray = (double *) malloc(rowLength * sizeof(double));
-
-    for (i = 0; i < (rowLength); i++) {
-        rowMeansArray[i] = rowMean(inputMatrix[i], rowLength);
-    }
-    for (p = 0; p < (rowLength); p++) {
-        for (j = 0; j < (rowLength); j++) {
-            outputMatrix[p][j] = fillCovDiffInCell(inputMatrix[p], inputMatrix[j], rowMeansArray[i],
-                                                   rowMeansArray[j], rowLength);
-        }
-    }
-    free(rowMeansArray);
-}
-
-
-void outputMatrixToFile(double **outputMatrix, int outputMatrixDimension[], FILE *outputFile) {
-    double* outputMatrixCell=outputMatrix[0];
-    double* outputMatrixEnd=outputMatrix[0]+(outputMatrixDimension[0]);
-    int toFileByRow = 0;
-    int rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
-    assert(rowsAndColumns == 2);
-
-
-    for (; outputMatrixCell!=outputMatrixEnd; outputMatrixCell++) {
-        toFileByRow = fwrite(outputMatrixCell, sizeof(double), outputMatrixDimension[0], outputFile);
-    }
-    assert(toFileByRow == outputMatrixDimension[0]);
-}
-
-*/
 
 
 int main(int argc, char *argv[]) {
@@ -104,6 +66,7 @@ int main(int argc, char *argv[]) {
     rowLength = matrixDimension[1];
     columnLength = matrixDimension[0];
 
+    ///Input Matrix is standardized while being read
     matrix = (double **) malloc(rowLength * sizeof(double *));
     outputMatrix = (double **) malloc(rowLength * sizeof(double *));
     for (i = 0; i < rowLength; i++) {
@@ -112,16 +75,16 @@ int main(int argc, char *argv[]) {
 
         matrixRow = fread(matrix[i], sizeof(double), columnLength, file); /* Filling Matrix[i]*/
         assert(matrixRow == columnLength);
-        meanRowSubtraction(matrix[i], rowLength) ///Subtracts mean from each row of input matrix
+        subtractMeanFromRow(matrix[i], columnLength) ///Subtracts mean from each row of input matrix
     }
 
     fclose(file);
 
-    /* Going over input matrix, calculating and writing covariance row by row.*/
+    ///Going over input matrix, calculating and writing covariance row by row
     outputFile = fopen(argv[2], "w");
     assert(outputFile != NULL);
+    outputMatrixDimension[1] = rowLength;   /// output Matrix is square
     outputMatrixDimension[0] = rowLength;
-    outputMatrixDimension[1] = columnLength;
 
     int rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
     assert(rowsAndColumns == 2);
@@ -129,13 +92,13 @@ int main(int argc, char *argv[]) {
     /// Calculating covariance and writing done row by row
     for(i = 0; i < rowLength; i++) {
         for(j = 0; j < rowLength; j++){
-            outputMatrix[i][j] = fillCovDiffInCell(matrix[i], matrix[j], rowLength)
+            outputMatrix[i][j] = fillCovDiffInCell(matrix[i], matrix[j], columnLength)  ///Iteration by columns
         }
+
         int toFileByRow = 0;
-        toFileByRow = fwrite(matrix[i], sizeof(double), outputMatrixDimension[0], outputFile);
+        toFileByRow = fwrite(outputMatrix[i], sizeof(double), outputMatrixDimension[0], outputFile);
         assert(toFileByRow == outputMatrixDimension[0]);
     }
-
 
     fclose(outputFile);
 
