@@ -59,10 +59,11 @@ double calculateNotNormalizedVectorCellValue(double *currentRow, double *vector,
 
 double calcVectorDivisor(double *vector, int size) {
     double *vectorEnd = vector + size;
+    double *vectorPointer = vector;
     double sum = 0;
-    for (; vector != vectorEnd; vector++)
-        sum += *vector;
-
+    for (; vectorPointer != vectorEnd; vectorPointer++) {
+        sum += vectorPointer[0]; /* this is problematic*/
+    }
     return sqrt(sum);
 }
 
