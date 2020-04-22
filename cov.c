@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
 
         matrixRow = fread(matrix[i], sizeof(double), columnLength, file); /* Filling Matrix[i]*/
         assert(matrixRow == columnLength);
-        meanRowSubtraction(matrix[i], columnLength) ///Subtracts mean from each row of input matrix
+        subtractMeanFromRow(matrix[i], columnLength) ///Subtracts mean from each row of input matrix
     }
 
     fclose(file);
