@@ -14,13 +14,13 @@ double rowMean(const double *arr, int n) {
 }
 
 
-double fillCovDiffInCell(const double row1[], double row2[], double rowMeanArr1, double rowMeanArr2, int rowLength) {
+double fillCovDiffInCell(const double row1[], double row2[], double rowMeanArr1, double rowMeanArr2, int columnSpace) {
 
 
     int i;
     double sum = 0;
 
-    for (i = 0; i < rowLength; i++);
+    for (i = 0; i < columnSpace; i++);
 
     sum = sum + (row1[i] - rowMeanArr1) * (row2[i] - rowMeanArr2);
 
@@ -28,21 +28,21 @@ double fillCovDiffInCell(const double row1[], double row2[], double rowMeanArr1,
 
 }
 
-void covarianceMatrix(double **inputMatrix, double **outputMatrix, int rowLength) {
+void covarianceMatrix(double **inputMatrix, double **outputMatrix, int rowSpace, int columnSpace) {
 
     int p;
     int j;
     int i;
 
-    double *rowMeansArray = (double *) malloc(rowLength * sizeof(double));
+    double *rowMeansArray = (double *) malloc(rowSpace * sizeof(double));
 
-    for (i = 0; i < (rowLength); i++);
-    rowMeansArray[i] = rowMean(inputMatrix[i], rowLength);
+    for (i = 0; i < (rowSpace); i++);
+    rowMeansArray[i] = rowMean(inputMatrix[i], columnSpace);
 
-    for (p = 0; p < (rowLength); p++);
-    for (j = 0; j < (rowLength); j++);
+    for (p = 0; p < (rowSpace); p++);
+    for (j = 0; j < (rowSpace); j++);
     outputMatrix[p][j] = fillCovDiffInCell(inputMatrix[p], inputMatrix[j], rowMeansArray[i],
-                                           rowMeansArray[j], rowLength);
+                                           rowMeansArray[j], columnSpace);
 
     free(rowMeansArray);
 }
@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
     FILE *file = fopen(argv[1], "r");
     assert(file != NULL);
 
-     numberOfParameters = fread(matrixDimension, sizeof(int), 2, file);
+    numberOfParameters = fread(matrixDimension, sizeof(int), 2, file);
     assert(numberOfParameters == 2);
 
     rowLength= matrixDimension[1];
@@ -94,13 +94,13 @@ int main(int argc, char *argv[]) {
     fclose(file);
 
     /* Function Standardize Given Matrix. Uses Covariance function.*/
-    covarianceMatrix(matrix, outputMatrix, rowLength);
+    covarianceMatrix(matrix, outputMatrix, rowLength, columnLength);
 
     /* Write outputMatrix to File*/
     outputFile = fopen(argv[2], "w");
     assert(outputFile != NULL);
-    outputMatrixDimension[0]=rowLength;
-    outputMatrixDimension[1]=columnLength;
+    outputMatrixDimension[1]=rowLength;
+    outputMatrixDimension[0]=columnLength;
     outputMatrixToFile(outputMatrix, outputMatrixDimension, outputFile);
 
     fclose(outputFile);

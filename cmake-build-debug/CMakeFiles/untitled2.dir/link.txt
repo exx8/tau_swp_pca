@@ -1,1 +1,1 @@
-/usr/bin/cc  -ansi -Wall -Wextra -Werror -pedantic-errors -g   CMakeFiles/untitled2.dir/cov.c.o CMakeFiles/untitled2.dir/eigen.c.o  -o untitled2 
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -ansi -Wall -Wextra -Werror -pedantic-errors -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/untitled2.dir/cov.c.o CMakeFiles/untitled2.dir/eigen.c.o  -o untitled2 

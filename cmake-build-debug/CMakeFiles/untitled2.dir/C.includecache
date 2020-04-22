@@ -6,11 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/eran/CLionProjects/tau_swp_pca/cov.c
+/Users/nazaraburas/CLionProjects/SoftwareProject1/cov.c
 stdio.h
 -
 stdlib.h
 -
 assert.h
+-
+
+/Users/nazaraburas/CLionProjects/SoftwareProject1/eigen.c
+assert.h
+-
+stdio.h
 -
 
