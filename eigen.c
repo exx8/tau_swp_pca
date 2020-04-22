@@ -62,7 +62,7 @@ double calcVectorDivisor(double *vector, int size) {
     double *vectorPointer = vector;
     double sum = 0;
     for (; vectorPointer != vectorEnd; vectorPointer++) {
-        sum += vectorPointer[0];
+        sum += vectorPointer[0]*vectorPointer[0];
     }
     return sqrt(sum);
 }
@@ -77,10 +77,10 @@ double normalizeVector(double *newVectorPointer, int vectorSize,  double *oldVec
 
 
     for (; currentNewVectorPointer != NewVectorEnd; currentNewVectorPointer++) {
-        double NewVectorCellValue = *currentNewVectorPointer;
+        double newVectorCellValue = *currentNewVectorPointer;
         double oldVectorCellValue = *oldVectorPointer;
         *currentNewVectorPointer /= vectorDivisor;
-        largestDiff = max(fabs(NewVectorCellValue - oldVectorCellValue), largestDiff);
+        largestDiff = max(fabs(newVectorCellValue - oldVectorCellValue), largestDiff);
 
     }
     return largestDiff;
