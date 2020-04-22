@@ -13,7 +13,7 @@ double rowMean(const double *arr, int n) {
 
 }
 
-void subtractMeanFromRow(double row1, int columnLength){
+void subtractMeanFromRow(double row1[], int columnLength){
 
     double mean = rowMean(row1, columnLength);
     int i;
@@ -38,7 +38,6 @@ double fillCovDiffInCell(const double row1[], double row2[], int columnLength) {
     return sum;
 
 }
-
 
 
 int main(int argc, char *argv[]) {
@@ -77,7 +76,7 @@ int main(int argc, char *argv[]) {
 
         matrixRow = fread(matrix[i], sizeof(double), columnLength, file); /* Filling Matrix[i]*/
         assert(matrixRow == columnLength);
-        subtractMeanFromRow(matrix[i], columnLength) ///Subtracts mean from each row of input matrix
+        subtractMeanFromRow(matrix[i], columnLength); ///Subtracts mean from each row of input matrix
     }
 
     fclose(file);
@@ -94,7 +93,7 @@ int main(int argc, char *argv[]) {
     /// Calculating covariance and writing done row by row
     for(i = 0; i < rowLength; i++) {
         for(j = 0; j < rowLength; j++){
-            outputMatrix[i][j] = fillCovDiffInCell(matrix[i], matrix[j], columnLength)  ///Iteration by columns
+            outputMatrix[i][j] = fillCovDiffInCell(matrix[i], matrix[j], columnLength);  ///Iteration by columns
         }
 
         toFileByRow = fwrite(outputMatrix[i], sizeof(double), outputMatrixDimension[0], outputFile);
