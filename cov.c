@@ -1,65 +1,77 @@
- #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-#include "time.h"
+#include <time.h>
 
 double rowMean(const double *arr, int n) {
 
     double sum = 0;
     int i;
+
     for (i = 0; i < n; i++)
         sum = sum + arr[i];
     return sum / n;
 
 }
 
-void subtractMeanFromRow(double *row1, int columnLength){
 
-    double mean = rowMean(row1, columnLength);
+double fillCovDiffInCell(double row1[], double row2[], double rowMeanArr1, double rowMeanArr2, int columnSpace) {
+
+
     int i;
-    for(i = 0; i < columnLength; i++) {
-        row1[i] = row1[i] - mean;
-    }
-}
-
-
-
-double fillCovDiffInCell(const double row1[], double row2[], int columnLength) {
-
-
     double sum = 0;
-    double const* row1Cell=row1;
-    double * row2Cell=row2;
-    double const* rowEnd=row1+columnLength;
-    for (; row1Cell!=rowEnd; row1Cell++,row2Cell++) {
 
-        sum = sum + (*row1Cell) * (*row2Cell);
+    for (i = 0; i < columnSpace; i++) {
+
+        sum = sum + (row1[i] - rowMeanArr1) * (row2[i] - rowMeanArr2);
     }
+
     return sum;
 
 }
 
+void covarianceMatrix(double **inputMatrix, int rowSpace, int columnSpace, FILE *outputFile) {
+
+    int p;
+    int j;
+    int i;
+    int writeNum=0;
+
+    double *rowMeansArray = (double *) malloc(rowSpace * sizeof(double));
+    double *row = calloc(rowSpace, sizeof(double));
+    for (i = 0; i < (rowSpace); i++) {
+        rowMeansArray[i] = rowMean(inputMatrix[i], columnSpace);
+    }
+
+    for (p = 0; p < (rowSpace); p++) {
+
+        for (j = 0; j < (rowSpace); j++) {
+
+            row[j] = fillCovDiffInCell(inputMatrix[p], inputMatrix[j], rowMeansArray[p],
+                                       rowMeansArray[j], columnSpace);
+
+        }
+        writeNum=fwrite(row, sizeof(double), rowSpace, outputFile);
+        assert(writeNum==rowSpace);
+    }
+    free(row);
+    free(rowMeansArray);
+}
 
 
-int main(int argc, char *argv[]) {
+int main2(int argc, char *argv[]) {
     int matrixDimension[2];
     int numberOfParameters = 0;
     int rowLength = 0;
     int columnLength;
     double **matrix;
-    double **outputMatrix;
     int i;
-    int j;
     int matrixRow;
     FILE *outputFile;
+    int writeStatus=0;
     int outputMatrixDimension[2] = {0, 0};
-    clock_t start,end;
-    FILE *file;
-    int rowsAndColumns;
-    int toFileByRow = 0;
-
-    start=clock();
-    file = fopen(argv[1], "r");
+    time_t start = clock();
+    FILE *file = fopen(argv[1], "r");
     assert(file != NULL);
 
     numberOfParameters = fread(matrixDimension, sizeof(int), 2, file);
@@ -68,51 +80,41 @@ int main(int argc, char *argv[]) {
     rowLength = matrixDimension[1];
     columnLength = matrixDimension[0];
 
-    /*Input Matrix is standardized while being read*/
     matrix = (double **) malloc(rowLength * sizeof(double *));
-    outputMatrix = (double **) malloc(rowLength * sizeof(double *));
     for (i = 0; i < rowLength; i++) {
         matrix[i] = (double *) malloc(columnLength * sizeof(double));
-        outputMatrix[i] = (double *) malloc(rowLength * sizeof(double));
 
         matrixRow = fread(matrix[i], sizeof(double), columnLength, file); /* Filling Matrix[i]*/
         assert(matrixRow == columnLength);
-        subtractMeanFromRow(matrix[i], columnLength) ;/*Subtracts mean from each row of input matrix*/
     }
 
     fclose(file);
 
-    /*Going over input matrix, calculating and writing covariance row by row*/
+    /* Write outputMatrix to File*/
     outputFile = fopen(argv[2], "w");
     assert(outputFile != NULL);
-    outputMatrixDimension[1] = rowLength;   /* output Matrix is square*/
+    outputMatrixDimension[1] = rowLength;
     outputMatrixDimension[0] = rowLength;
+    writeStatus=fwrite(outputMatrixDimension,sizeof(int),1,outputFile);
+    assert(writeStatus==1);
 
-    rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
-    assert(rowsAndColumns == 2);
+    writeStatus=fwrite(outputMatrixDimension,sizeof(int),1,outputFile);
 
-    /* Calculating covariance and writing done row by row*/
-    for(i = 0; i < rowLength; i++) {
-        for(j = 0; j < rowLength; j++){
-            outputMatrix[i][j] = fillCovDiffInCell(matrix[i], matrix[j], columnLength);  /*Iteration by columns*/
-        }
+    assert(writeStatus==1);
+    /* Function Standardize Given Matrix. Uses Covariance function.*/
+    covarianceMatrix(matrix, rowLength, columnLength, outputFile);
 
-        toFileByRow = fwrite(outputMatrix[i], sizeof(double), outputMatrixDimension[0], outputFile);
-        assert(toFileByRow == outputMatrixDimension[0]);
-    }
+
 
     fclose(outputFile);
 
     for (i = 0; i < rowLength; i++) {
         free(matrix[i]);
-        free(outputMatrix[i]);
     }
 
-    free(matrix);
-    free(outputMatrix);
-
     (void) argc;/*we don't want any warnings*/
-    end=clock();
-    printf("%f",((double)(end-start) / CLOCKS_PER_SEC));
+    free(matrix);
+    printf("%f", ((double) (clock() - start) / CLOCKS_PER_SEC));
+
     return 0;
 }
