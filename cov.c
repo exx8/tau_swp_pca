@@ -7,6 +7,7 @@ double rowMean(const double *arr, int n) {
 
     double sum = 0;
     int i;
+
     for (i = 0; i < n; i++)
         sum = sum + arr[i];
     return sum / n;
@@ -35,9 +36,10 @@ void covarianceMatrix(double **inputMatrix, double **outputMatrix, int rowSpace,
     int i;
 
 
+
     double *rowMeansArray = (double *) malloc(rowSpace * sizeof(double));
 
-    for (i = 0; i < (columnSpace); i++){
+    for (i = 0; i < (rowSpace); i++){
         rowMeansArray[i] = rowMean(inputMatrix[i], columnSpace);}
 
     for (p = 0; p < (rowSpace); p++){
@@ -102,7 +104,7 @@ int main(int argc, char *argv[]) {
     outputFile = fopen(argv[2], "w");
     assert(outputFile != NULL);
     outputMatrixDimension[1]=rowLength;
-    outputMatrixDimension[0]=columnLength;
+    outputMatrixDimension[0]=rowLength;
     outputMatrixToFile(outputMatrix, outputMatrixDimension, outputFile);
 
     fclose(outputFile);
