@@ -14,15 +14,15 @@ double rowMean(const double *arr, int n) {
 }
 
 
-double fillCovDiffInCell(const double row1[], double row2[], double rowMeanArr1, double rowMeanArr2, int columnSpace) {
+double fillCovDiffInCell(double row1[], double row2[], double rowMeanArr1, double rowMeanArr2, int columnSpace) {
 
 
     int i;
     double sum = 0;
 
-    for (i = 0; i < columnSpace; i++);
+    for (i = 0; i < columnSpace; i++) {
 
-    sum = sum + (row1[i] - rowMeanArr1) * (row2[i] - rowMeanArr2);
+        sum = sum + (row1[i] - rowMeanArr1) * (row2[i] - rowMeanArr2); }
 
     return sum;
 
@@ -34,15 +34,17 @@ void covarianceMatrix(double **inputMatrix, double **outputMatrix, int rowSpace,
     int j;
     int i;
 
+
     double *rowMeansArray = (double *) malloc(rowSpace * sizeof(double));
 
-    for (i = 0; i < (rowSpace); i++);
-    rowMeansArray[i] = rowMean(inputMatrix[i], columnSpace);
+    for (i = 0; i < (rowSpace); i++){
+        rowMeansArray[i] = rowMean(inputMatrix[i], columnSpace);}
 
-    for (p = 0; p < (rowSpace); p++);
-    for (j = 0; j < (rowSpace); j++);
-    outputMatrix[p][j] = fillCovDiffInCell(inputMatrix[p], inputMatrix[j], rowMeansArray[i],
-                                           rowMeansArray[j], columnSpace);
+    for (p = 0; p < (rowSpace); p++){
+        for (j = 0; j < (rowSpace); j++){
+
+            outputMatrix[p][j] = fillCovDiffInCell(inputMatrix[p], inputMatrix[j], rowMeansArray[p],
+                    rowMeansArray[j], columnSpace); } }
 
     free(rowMeansArray);
 }
@@ -54,9 +56,9 @@ void outputMatrixToFile(double **outputMatrix, int *outputMatrixDimension, FILE 
     int rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
     assert(rowsAndColumns == 2);
 
-    for (l = 0; l < (outputMatrixDimension[0]); l++);
-    toFileByRow= fwrite(outputMatrix[l], sizeof(double), outputMatrixDimension[0], outputFile);
-    assert(toFileByRow == outputMatrixDimension[0]);
+    for (l = 0; l < (outputMatrixDimension[0]); l++){
+        toFileByRow= fwrite(outputMatrix[l], sizeof(double), outputMatrixDimension[0], outputFile);
+        assert(toFileByRow == outputMatrixDimension[0]); }
 }
 
 
@@ -105,9 +107,9 @@ int main(int argc, char *argv[]) {
 
     fclose(outputFile);
 
-
-    free(matrix);
-    free(outputMatrix);
+    for (i = 0; i < rowLength; i++){
+        free(matrix[i]);
+        free(outputMatrix[i]); }
 
     (void)argc ;/*we don't want any warnings*/
     return 0;
