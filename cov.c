@@ -59,7 +59,7 @@ void covarianceMatrix(double **inputMatrix, int rowSpace, int columnSpace, FILE 
 }
 
 
-int main2(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
     int matrixDimension[2];
     int numberOfParameters = 0;
     int rowLength = 0;
