@@ -152,6 +152,7 @@ void writeToFile(FILE *output, const int *dimension, const double *bk) {
 }
 
 int main(int argc, char *argv[]) {
+    clock_t start;
     FILE *input, *output;
     int matrixDimension[2];
     const double epsilon = 0.00001;
@@ -160,7 +161,7 @@ int main(int argc, char *argv[]) {
     int vectorDimension[2]={0,0};
     assert(argc == 3);
     srand(time(NULL));
-
+    start=clock();
 
     input = openInputFile(argv);
     getDimension(input, matrixDimension);
@@ -175,5 +176,7 @@ int main(int argc, char *argv[]) {
     free(bk);
     fclose(input);
     fclose(output);
+    printf("%f ",((double)(clock()-start) / CLOCKS_PER_SEC));
+
     return 0;
 }
