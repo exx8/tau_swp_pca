@@ -46,11 +46,11 @@ double max(double a, double b) {
 
 }
 
-double calculateNotNormalizedVectorCellValue(double *currentRow, double *vector, int size) {
+double dotProduct_(double *currentRow, double *vector, int size) {
     double *currentRowPointer = currentRow;
     double *currentCellInVector = vector;
     double *currentRowEnd = currentRow + size;
-    int sum = 0;
+    double sum = 0;
     for (; currentRowPointer != currentRowEnd; currentRowPointer++, currentCellInVector++) {
         sum += *currentRowPointer * (*currentCellInVector);
     }
@@ -83,6 +83,7 @@ void normalizeVector(double *newVectorPointer, int vectorSize) {
 
 double scanColumnAndWriteToNewVector(FILE *input, double *vector, double *newVector, int vectorSize,
                                      double *currentRow) {
+    /*@todo problem with reading from file probably*/
 
     double largestDiff = 0;
     double *oldVectorEnd = vector + vectorSize;
@@ -92,7 +93,7 @@ double scanColumnAndWriteToNewVector(FILE *input, double *vector, double *newVec
         double cellNewValue;
         readline(input, currentRow, vectorSize);
 
-        cellNewValue = calculateNotNormalizedVectorCellValue(currentRow, vector, vectorSize);
+        cellNewValue = dotProduct_(currentRow, vector, vectorSize);
         *newVectorPointer = cellNewValue;
 
     }
@@ -106,6 +107,15 @@ double scanColumnAndWriteToNewVector(FILE *input, double *vector, double *newVec
 }
 
 
+void resetLine( FILE *input) {
+    int readStatus;
+    int dontcare[2];
+    rewind(input);
+    readStatus = fread(dontcare, sizeof(int), 2, input);
+    assert(readStatus == 2);
+
+}
+
 double *iterateVector(FILE *input, double epsilon, double *vector, int vectorSize) {
     double *newVector = (double *) calloc(vectorSize, sizeof(double));
     double *currentRow = calloc(vectorSize,
@@ -117,7 +127,7 @@ double *iterateVector(FILE *input, double epsilon, double *vector, int vectorSiz
         largestDiff = scanColumnAndWriteToNewVector(input, vector, newVector, vectorSize, currentRow);
 
         swap(&newVector, &vector);
-        rewind(input);
+        resetLine(input);
     } while (largestDiff > epsilon);
     swap(&newVector, &vector);
     free(currentRow);
@@ -143,28 +153,27 @@ void writeToFile(FILE *output, const int *dimension, const double *bk) {
 
 int main(int argc, char *argv[]) {
     FILE *input, *output;
-    int dimension[2];
+    int matrixDimension[2];
     const double epsilon = 0.00001;
     double *b0;/* iteration vector*/
     double *bk;
-
+    int vectorDimension[2]={0,0};
     assert(argc == 3);
     srand(time(NULL));
 
 
     input = openInputFile(argv);
-    getDimension(input, dimension);
-    b0 = getVector(dimension[0]);
-    bk = iterateVector(input, epsilon, b0, dimension[0]);
+    getDimension(input, matrixDimension);
+    vectorDimension[1]=matrixDimension[0];
+    vectorDimension[0]=1;
+    b0 = getVector(matrixDimension[0]);
+    bk = iterateVector(input, epsilon, b0, matrixDimension[0]);
     /* @todo write the output file*/
     output = openOutputFile(argv);
-
-    writeToFile(output, dimension, bk);
+    writeToFile(output, vectorDimension, bk);
     free(b0);
     free(bk);
     fclose(input);
     fclose(output);
     return 0;
 }
-
-

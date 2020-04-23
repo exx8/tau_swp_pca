@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:Matrix-Covariance" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="untitled2" targetName="untitled2" />
@@ -13,7 +37,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1e591f87-db3e-4097-9bf6-6f5d87f396c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/cov.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/untitled2.dir/cov.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/untitled2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/untitled2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cov.c" beforeDir="false" afterPath="$PROJECT_DIR$/cov.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eigen.c" beforeDir="false" afterPath="$PROJECT_DIR$/eigen.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +90,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="untitled2" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="$PROJECT_DIR$/matrix $PROJECT_DIR$/output" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="untitled2" TARGET_NAME="untitled2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="untitled2" RUN_TARGET_NAME="untitled2">
+    <configuration name="untitled2" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="$PROJECT_DIR$/matrix $PROJECT_DIR$/output2" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="untitled2" TARGET_NAME="untitled2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="untitled2" RUN_TARGET_NAME="untitled2">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -98,6 +124,7 @@
       <workItem from="1587485301972" duration="6561000" />
       <workItem from="1587501944024" duration="3661000" />
       <workItem from="1587569596796" duration="2180000" />
+      <workItem from="1587622863006" duration="459000" />
     </task>
     <task id="LOCAL-00001" summary="first steps.">
       <created>1587420912532</created>
@@ -240,10 +267,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="fixes major pointer issue and memory leak." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587509124395">
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587598690538">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587509124395" />
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587598690538" />
     <state x="1067" y="585" width="578" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587572216734">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -264,46 +291,46 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1587038480716" />
-    <state width="1807" height="344" key="GridCell.Tab.0.bottom" timestamp="1587591234803">
+    <state width="1807" height="344" key="GridCell.Tab.0.bottom" timestamp="1587623246450">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1585930976563" />
     <state width="1358" height="200" key="GridCell.Tab.0.bottom/0.23.1440.824@0.23.1440.824" timestamp="1585917167782" />
-    <state width="1807" height="344" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587591234803" />
-    <state width="1807" height="344" key="GridCell.Tab.0.center" timestamp="1587591234802">
+    <state width="1807" height="344" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587623246450" />
+    <state width="1807" height="344" key="GridCell.Tab.0.center" timestamp="1587623246449">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1585930976562" />
     <state width="1358" height="200" key="GridCell.Tab.0.center/0.23.1440.824@0.23.1440.824" timestamp="1585917167781" />
-    <state width="1807" height="344" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587591234802" />
-    <state width="1807" height="344" key="GridCell.Tab.0.left" timestamp="1587591234802">
+    <state width="1807" height="344" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587623246449" />
+    <state width="1807" height="344" key="GridCell.Tab.0.left" timestamp="1587623246448">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1585930976561" />
     <state width="1358" height="200" key="GridCell.Tab.0.left/0.23.1440.824@0.23.1440.824" timestamp="1585917167780" />
-    <state width="1807" height="344" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587591234802" />
-    <state width="1807" height="344" key="GridCell.Tab.0.right" timestamp="1587591234802">
+    <state width="1807" height="344" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587623246448" />
+    <state width="1807" height="344" key="GridCell.Tab.0.right" timestamp="1587623246450">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1585930976563" />
     <state width="1358" height="200" key="GridCell.Tab.0.right/0.23.1440.824@0.23.1440.824" timestamp="1585917167782" />
-    <state width="1807" height="344" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587591234802" />
-    <state width="1807" height="344" key="GridCell.Tab.1.bottom" timestamp="1587591235207">
+    <state width="1807" height="344" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587623246450" />
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom" timestamp="1587623246644">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587591235207" />
-    <state width="1807" height="344" key="GridCell.Tab.1.center" timestamp="1587591235207">
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587623246644" />
+    <state width="1807" height="344" key="GridCell.Tab.1.center" timestamp="1587623246644">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587591235207" />
-    <state width="1807" height="344" key="GridCell.Tab.1.left" timestamp="1587591235206">
+    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587623246644" />
+    <state width="1807" height="344" key="GridCell.Tab.1.left" timestamp="1587623246643">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587591235206" />
-    <state width="1807" height="344" key="GridCell.Tab.1.right" timestamp="1587591235207">
+    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587623246643" />
+    <state width="1807" height="344" key="GridCell.Tab.1.right" timestamp="1587623246644">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587591235207" />
+    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587623246644" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1587585817775">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -326,25 +353,59 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="684" y="293" width="618" height="518" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1587590616416" />
-    <state x="1119" y="271" width="563" height="417" key="refactoring.ChangeSignatureDialog" timestamp="1587502263090">
+    <state x="1119" y="271" width="563" height="413" key="refactoring.ChangeSignatureDialog" timestamp="1587600324524">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="442" y="87" key="refactoring.ChangeSignatureDialog/0.0.1440.900@0.0.1440.900" timestamp="1586510393487" />
-    <state x="1119" y="271" width="563" height="417" key="refactoring.ChangeSignatureDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587502263090" />
+    <state x="1119" y="271" width="563" height="413" key="refactoring.ChangeSignatureDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587600324524" />
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1587569934267">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1587569934267" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/eigen.c</url>
+          <line>147</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/eigen.c</url>
+          <line>129</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/eigen.c</url>
+          <line>105</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/eigen.c</url>
+          <line>95</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/eigen.c</url>
+          <line>31</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/eigen.c</url>
+          <line>114</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
-        <watch expression="newVector[1]" language="ObjectiveC" />
-        <watch expression="newVector[4]" language="ObjectiveC" />
-        <watch expression="newVector[2]" language="ObjectiveC" />
-        <watch expression="newVector[3]" language="ObjectiveC" />
-        <watch expression="newVector[0]" language="ObjectiveC" />
-        <watch expression="dimension[1]*dimension[0]" language="ObjectiveC" />
+        <watch expression="currentRow" language="ObjectiveC" />
+        <watch expression="currentRow[1]" language="ObjectiveC" />
+        <watch expression="currentRow" language="ObjectiveC" />
+        <watch expression="currentRow[0]" language="ObjectiveC" />
+        <watch expression="a[1]" language="ObjectiveC" />
+        <watch expression="currentRow" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>
