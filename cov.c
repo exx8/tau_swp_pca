@@ -37,7 +37,7 @@ void covarianceMatrix(double **inputMatrix, double **outputMatrix, int rowSpace,
 
     double *rowMeansArray = (double *) malloc(rowSpace * sizeof(double));
 
-    for (i = 0; i < (rowSpace); i++){
+    for (i = 0; i < (columnSpace); i++){
         rowMeansArray[i] = rowMean(inputMatrix[i], columnSpace);}
 
     for (p = 0; p < (rowSpace); p++){
