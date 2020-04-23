@@ -171,7 +171,7 @@ int main(int argc, char *argv[]) {
     /* @todo write the output file*/
     output = openOutputFile(argv);
     writeToFile(output, vectorDimension, bk);
-    free(b0);
+
     free(bk);
     fclose(input);
     fclose(output);
