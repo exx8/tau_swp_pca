@@ -1,0 +1,2 @@
+python time.py $1 $2 | grep 'seconds'
+

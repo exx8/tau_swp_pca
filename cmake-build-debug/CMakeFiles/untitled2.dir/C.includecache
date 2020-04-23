@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/eran/CLionProjects/tau_swp_pca/eigen.c
+assert.h
+-
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+math.h
+-
+

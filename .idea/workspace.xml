@@ -16,7 +16,13 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:Matrix-Covariance" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
@@ -29,8 +35,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbfb9238-46f9-4cf7-985a-2f2e19ca61ed" name="Default Changelist" comment="">
+    <list default="true" id="1e591f87-db3e-4097-9bf6-6f5d87f396c8" name="Default Changelist" comment="more changes.">
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/untitled2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/untitled2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cov.c" beforeDir="false" afterPath="$PROJECT_DIR$/cov.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eigen.c" beforeDir="false" afterPath="$PROJECT_DIR$/eigen.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +51,11 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="eigen-value" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1a1xmzgfAHAQKa2MlvPLkUGJ7gz" />
@@ -51,31 +64,51 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="dynamic.analysis.tools.profiler" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/../PCL" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="untitled2" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="untitled2" TARGET_NAME="untitled2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="untitled2" RUN_TARGET_NAME="untitled2">
+  <component name="RunManager" selected="CMake Application.eigen">
+    <configuration name="cov" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="$PROJECT_DIR$/matrix $PROJECT_DIR$/output" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="untitled2" TARGET_NAME="untitled2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="untitled2" RUN_TARGET_NAME="untitled2">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="eigen" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="$PROJECT_DIR$/output $PROJECT_DIR$/output2" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="untitled2" TARGET_NAME="untitled2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="untitled2" RUN_TARGET_NAME="untitled2">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.cov" />
+      <item itemvalue="CMake Application.eigen" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cbfb9238-46f9-4cf7-985a-2f2e19ca61ed" name="Default Changelist" comment="" />
+      <changelist id="1e591f87-db3e-4097-9bf6-6f5d87f396c8" name="Default Changelist" comment="" />
       <created>1585917063569</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -91,109 +124,298 @@
       <workItem from="1586510780371" duration="54000" />
       <workItem from="1586517588580" duration="167000" />
       <workItem from="1586864184169" duration="825000" />
-      <workItem from="1587403574359" duration="111000" />
-      <workItem from="1587450158122" duration="19000" />
-      <workItem from="1587572743614" duration="380000" />
+      <workItem from="1586977835486" duration="269000" />
+      <workItem from="1586978129014" duration="287000" />
+      <workItem from="1587038466971" duration="16000" />
+      <workItem from="1587333811556" duration="1428000" />
+      <workItem from="1587485301972" duration="6561000" />
+      <workItem from="1587501944024" duration="3661000" />
+      <workItem from="1587569596796" duration="2180000" />
+      <workItem from="1587622863006" duration="1727000" />
+      <workItem from="1587625321865" duration="920000" />
     </task>
-    <task id="LOCAL-00001" summary="fix a conflict leftovers (have you ignored it?)">
-      <created>1587572696672</created>
+    <task id="LOCAL-00001" summary="first steps.">
+      <created>1587420912532</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1587572696672</updated>
+      <updated>1587420912532</updated>
     </task>
-    <task id="LOCAL-00002" summary="remember to put dec in the start.">
-      <created>1587572917744</created>
+    <task id="LOCAL-00002" summary="more changes">
+      <created>1587451836147</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1587572917744</updated>
+      <updated>1587451836147</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="read dimension">
+      <created>1587452338424</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587452338424</updated>
+    </task>
+    <task id="LOCAL-00004" summary="indenting">
+      <created>1587452365065</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587452365065</updated>
+    </task>
+    <task id="LOCAL-00005" summary="generate random vector">
+      <created>1587453855770</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1587453855770</updated>
+    </task>
+    <task id="LOCAL-00006" summary="building the iterator">
+      <created>1587486317753</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587486317753</updated>
+    </task>
+    <task id="LOCAL-00007" summary="almost all logic but matrix mult">
+      <created>1587488099997</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587488099997</updated>
+    </task>
+    <task id="LOCAL-00008" summary="semantics.">
+      <created>1587488674592</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587488674592</updated>
+    </task>
+    <task id="LOCAL-00009" summary="minor fixes.">
+      <created>1587488744017</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1587488744017</updated>
+    </task>
+    <task id="LOCAL-00010" summary="avoid memleak">
+      <created>1587490536711</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587490536711</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix bug">
+      <created>1587492060010</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587492060010</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add vector calcs.">
+      <created>1587495026410</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587495026410</updated>
+    </task>
+    <task id="LOCAL-00013" summary="write to file">
+      <created>1587502394532</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1587502394532</updated>
+    </task>
+    <task id="LOCAL-00014" summary="bugfixes.">
+      <created>1587508749743</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1587508749743</updated>
+    </task>
+    <task id="LOCAL-00015" summary="more changes.">
+      <created>1587569675599</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1587569675599</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fixes major pointer issue and memory leak.">
+      <created>1587570887038</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1587570887038</updated>
+    </task>
+    <task id="LOCAL-00017" summary="more changes.">
+      <created>1587623528288</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1587623528288</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix memory corruption.">
+      <created>1587626107669</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1587626107669</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix a conflict" />
-    <MESSAGE value="fix a conflict leftovers (have you ignored it?)" />
-    <MESSAGE value="remember to put dec in the start." />
-    <option name="LAST_COMMIT_MESSAGE" value="remember to put dec in the start." />
+    <MESSAGE value="first steps." />
+    <MESSAGE value="more changes" />
+    <MESSAGE value="read dimension" />
+    <MESSAGE value="indenting" />
+    <MESSAGE value="generate random vector" />
+    <MESSAGE value="building the iterator" />
+    <MESSAGE value="almost all logic but matrix mult" />
+    <MESSAGE value="semantics." />
+    <MESSAGE value="minor fixes." />
+    <MESSAGE value="avoid memleak" />
+    <MESSAGE value="fix bug" />
+    <MESSAGE value="add vector calcs." />
+    <MESSAGE value="write to file" />
+    <MESSAGE value="bugfixes." />
+    <MESSAGE value="fixes major pointer issue and memory leak." />
+    <MESSAGE value="more changes." />
+    <MESSAGE value="fix memory corruption." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix memory corruption." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="532" y="109" width="912" height="886" key="CommitChangelistDialog2" timestamp="1587572917423">
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587625896299">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="532" y="109" width="912" height="886" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1587572917422" />
-    <state x="167" y="125" width="1653" height="855" key="DiffContextDialog" timestamp="1587572731426">
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587625896299" />
+    <state x="1067" y="585" width="578" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587626133012">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="167" y="125" width="1653" height="855" key="DiffContextDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587572731426" />
-    <state width="1807" height="344" key="GridCell.Tab.0.bottom" timestamp="1587572731205">
+    <state x="1067" y="585" width="578" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1587626133012" />
+    <state x="747" y="383" width="481" height="337" key="#com.intellij.tools.ToolEditorDialog" timestamp="1587503070716">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="747" y="383" width="481" height="337" key="#com.intellij.tools.ToolEditorDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587503070716" />
+    <state x="729" y="405" width="518" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587334404148">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="729" y="405" width="518" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/67.27.1853.1053@67.27.1853.1053" timestamp="1587334404148" />
+    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2" timestamp="1587626107494">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="532" y="100" width="912" height="904" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1587626107494" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1587038480716">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1587038480716" />
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom" timestamp="1587626220044">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1585930976563" />
     <state width="1358" height="200" key="GridCell.Tab.0.bottom/0.23.1440.824@0.23.1440.824" timestamp="1585917167782" />
-    <state width="1807" height="344" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587572731205" />
-    <state width="1807" height="344" key="GridCell.Tab.0.center" timestamp="1587572731204">
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587626220044" />
+    <state width="1807" height="278" key="GridCell.Tab.0.center" timestamp="1587626220044">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1585930976562" />
     <state width="1358" height="200" key="GridCell.Tab.0.center/0.23.1440.824@0.23.1440.824" timestamp="1585917167781" />
-    <state width="1807" height="344" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587572731204" />
-    <state width="1807" height="344" key="GridCell.Tab.0.left" timestamp="1587572731204">
+    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587626220044" />
+    <state width="1807" height="278" key="GridCell.Tab.0.left" timestamp="1587626220043">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1585930976561" />
     <state width="1358" height="200" key="GridCell.Tab.0.left/0.23.1440.824@0.23.1440.824" timestamp="1585917167780" />
-    <state width="1807" height="344" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587572731204" />
-    <state width="1807" height="344" key="GridCell.Tab.0.right" timestamp="1587572731205">
+    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587626220043" />
+    <state width="1807" height="278" key="GridCell.Tab.0.right" timestamp="1587626220044">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="1358" height="200" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1585930976563" />
     <state width="1358" height="200" key="GridCell.Tab.0.right/0.23.1440.824@0.23.1440.824" timestamp="1585917167782" />
-    <state width="1807" height="344" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587572731205" />
-    <state width="1807" height="344" key="GridCell.Tab.1.bottom" timestamp="1587572731208">
+    <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587626220044" />
+    <state width="1807" height="278" key="GridCell.Tab.1.bottom" timestamp="1587626211857">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587572731208" />
-    <state width="1807" height="344" key="GridCell.Tab.1.center" timestamp="1587572731207">
+    <state width="1807" height="278" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1587626211857" />
+    <state width="1807" height="278" key="GridCell.Tab.1.center" timestamp="1587626211856">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587572731207" />
-    <state width="1807" height="344" key="GridCell.Tab.1.left" timestamp="1587572731206">
+    <state width="1807" height="278" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1587626211856" />
+    <state width="1807" height="278" key="GridCell.Tab.1.left" timestamp="1587626211855">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587572731206" />
-    <state width="1807" height="344" key="GridCell.Tab.1.right" timestamp="1587572731207">
+    <state width="1807" height="278" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1587626211855" />
+    <state width="1807" height="278" key="GridCell.Tab.1.right" timestamp="1587626211856">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587572731207" />
-    <state x="588" y="274" width="800" height="556" key="Vcs.Push.Dialog.v2" timestamp="1587573340388">
+    <state width="1807" height="278" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1587626211856" />
+    <state x="761" y="235" width="444" height="633" key="RollbackChangesDialog" timestamp="1587624399897">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="274" width="800" height="556" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1587573340388" />
-    <state x="396" y="281" width="1440" height="824" key="com.intellij.ide.util.TipDialog" timestamp="1587450160029">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="761" y="235" width="444" height="633" key="RollbackChangesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587624399897" />
+    <state x="482" y="187" key="SettingsEditor" timestamp="1587585817775">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="396" y="281" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1587450160029" />
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1587585817775" />
+    <state x="588" y="274" width="800" height="556" key="Vcs.Push.Dialog.v2" timestamp="1587626111842">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="588" y="274" width="800" height="556" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1587626111842" />
+    <state x="67" y="27" width="1440" height="824" key="com.intellij.ide.util.TipDialog" timestamp="1586977838798">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="397" y="281" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1586510780754" />
     <state x="-1" y="23" width="1440" height="824" key="com.intellij.ide.util.TipDialog/0.23.1440.824@0.23.1440.824" timestamp="1586864190929" />
-    <state x="442" y="87" key="refactoring.ChangeSignatureDialog" timestamp="1586510393487">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="67" y="27" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1586977838798" />
+    <state x="874" y="331" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey" timestamp="1587503071730">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="874" y="331" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey/67.27.1853.1053@67.27.1853.1053" timestamp="1587503071730" />
+    <state x="684" y="293" width="618" height="518" key="find.popup" timestamp="1587590616416">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="684" y="293" width="618" height="518" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1587590616416" />
+    <state x="1119" y="271" width="563" height="413" key="refactoring.ChangeSignatureDialog" timestamp="1587600324524">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="442" y="87" key="refactoring.ChangeSignatureDialog/0.0.1440.900@0.0.1440.900" timestamp="1586510393487" />
+    <state x="1119" y="271" width="563" height="413" key="refactoring.ChangeSignatureDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587600324524" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1587569934267">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1587569934267" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/eigen.c</url>
+          <line>103</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/eigen.c</url>
+          <line>28</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="currentRow" language="ObjectiveC" />
+        <watch expression="currentRow[1]" language="ObjectiveC" />
+        <watch expression="currentRow" language="ObjectiveC" />
+        <watch expression="currentRow[0]" language="ObjectiveC" />
+        <watch expression="a[1]" language="ObjectiveC" />
+        <watch expression="currentRow" language="ObjectiveC" />
+        <watch expression="covRow[1]" language="ObjectiveC" />
+        <watch expression="dif" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
