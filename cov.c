@@ -29,38 +29,23 @@ double fillCovDiffInCell(double row1[], double row2[], double rowMeanArr1, doubl
 
 }
 
-void covarianceMatrix(double **inputMatrix, double **outputMatrix, int rowSpace, int columnSpace) {
+void covarianceMatrixByRow(double **inputMatrix, double *inputMatrixRow, double rowMean, double *rowMeansArray,
+        double *outputMatrixRow, int rowLength, int columnLength) {
 
-    int p;
-    int j;
     int i;
 
+    for (i = 0; i < (rowLength); i++){
 
-
-    double *rowMeansArray = (double *) malloc(rowSpace * sizeof(double));
-
-    for (i = 0; i < (rowSpace); i++){
-        rowMeansArray[i] = rowMean(inputMatrix[i], columnSpace);}
-
-    for (p = 0; p < (rowSpace); p++){
-        for (j = 0; j < (rowSpace); j++){
-
-            outputMatrix[p][j] = fillCovDiffInCell(inputMatrix[p], inputMatrix[j], rowMeansArray[p],
-                    rowMeansArray[j], columnSpace); } }
-
-    free(rowMeansArray);
+        outputMatrixRow[i] = fillCovDiffInCell(inputMatrixRow, inputMatrix[i], rowMean,
+                                                   rowMeansArray[i], columnLength); }
 }
 
+void outputMatrixToFile(double *outputMatrixRow, int *outputMatrixDimension, FILE *outputFile) {
 
-void outputMatrixToFile(double **outputMatrix, int *outputMatrixDimension, FILE *outputFile) {
-    int l;
     int toFileByRow=0;
-    int rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
-    assert(rowsAndColumns == 2);
 
-    for (l = 0; l < (outputMatrixDimension[0]); l++){
-        toFileByRow= fwrite(outputMatrix[l], sizeof(double), outputMatrixDimension[0], outputFile);
-        assert(toFileByRow == outputMatrixDimension[0]); }
+    toFileByRow= fwrite(outputMatrixRow, sizeof(double), outputMatrixDimension[0], outputFile);
+    assert(toFileByRow == outputMatrixDimension[0]);
 }
 
 
@@ -75,6 +60,10 @@ int main(int argc, char *argv[]) {
     int matrixRow;
     FILE *outputFile;
     int outputMatrixDimension[2] = {0, 0};
+    int rowsAndColumns;
+
+    double *rowMeansArray;
+    double checker1;
 
     FILE *file = fopen(argv[1], "r");
     assert(file != NULL);
@@ -97,15 +86,32 @@ int main(int argc, char *argv[]) {
 
     fclose(file);
 
-    /* Function Standardize Given Matrix. Uses Covariance function.*/
-    covarianceMatrix(matrix, outputMatrix, rowLength, columnLength);
+
 
     /* Write outputMatrix to File*/
     outputFile = fopen(argv[2], "w");
     assert(outputFile != NULL);
     outputMatrixDimension[1]=rowLength;
     outputMatrixDimension[0]=rowLength;
-    outputMatrixToFile(outputMatrix, outputMatrixDimension, outputFile);
+
+    rowsAndColumns = fwrite(outputMatrixDimension, sizeof(int), 2, outputFile);
+    assert(rowsAndColumns == 2);
+
+    rowMeansArray = (double *) malloc(rowLength * sizeof(double));
+
+    for (i = 0; i < (rowLength); i++){
+        rowMeansArray[i] = rowMean(matrix[i], columnLength);}
+
+
+    /* Calculates covariance, and writes it to output matrix then to output File, one by one. */
+    for (i = 0; i < rowLength; i++){
+
+        covarianceMatrixByRow(matrix, matrix[i], rowMeansArray[i], rowMeansArray, outputMatrix[i],
+                rowLength, columnLength);
+
+        outputMatrixToFile(outputMatrix[i], outputMatrixDimension, outputFile);
+
+    }
 
     fclose(outputFile);
 
